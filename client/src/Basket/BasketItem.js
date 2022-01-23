@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import './Basket.css'
 import {Button} from "@mui/material";
 import drinksIce from "../Data/drinksIce";
 import pizza from "../Data/Pizza";
 
-function Basket({product = pizza[0], count = 2}) {
+function Basket({product = pizza[0]}) {
+    let [count, setCount] = useState(1);
     return (
         <div className={'basketItem__row'}>
             <div className={'basketItem__first'}>
@@ -13,8 +14,10 @@ function Basket({product = pizza[0], count = 2}) {
             </div>
 
             <div className={'basketItem__two'}>
-                <p className={'text-weight'}>{product.price + 'руб.'}</p>
-                <p className={'text-weight'}>{'кол-во: ' + count}</p>
+                <p className={'text-weight'}>{count * product.price + 'руб.'}</p>
+                <Button className={"basketItem__add"} onClick={() => setCount(count + 1)}>+</Button>
+                <p className={'text-weight'} >{count}</p>
+                <Button className={"basketItem__add"} onClick={() => setCount(count - 1)}>-</Button>
                 <Button className={'basketItem__button-del'}>Удалить</Button>
             </div>
         </div>

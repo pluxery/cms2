@@ -33,7 +33,6 @@
 }
 
 .header__profile {
-    min-width: 130px;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -46,9 +45,9 @@
 }
 
 .header__profile-data {
-            color: gray;
+    color: gray;
     padding: 10px;
-        }
+}
 
 .header__info {
     display: flex;

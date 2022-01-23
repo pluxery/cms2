@@ -51,12 +51,9 @@ function Header() {
                     <NavLink to={'/basket'} className={'sidebar__text-decoration'}>
                         <LocalGroceryStoreOutlinedIcon className={'header__profile-data'}/>
                     </NavLink>
-
-                        <p
-                            className={'header__profile-data'}
-                            onClick={logoutHandler}
-                        >
-                            Выйти</p>
+                    <p className={'header__profile-data'}
+                        onClick={logoutHandler}>
+                        Выйти</p>
 
                     <SettingsOutlinedIcon className={'header__profile-data'}/>
                 </div>
