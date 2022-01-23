@@ -1,6 +1,4 @@
-const mongoose = require('mongoose')
-
-const {Schema, model, Types} = require('mongoose')
+const {Schema, model} = require('mongoose')
 
 const schema = new Schema({
     image: {type: String, required: true},
@@ -9,4 +7,4 @@ const schema = new Schema({
     compound: {type: String, required: true},
 })
 
-module.exports = model('pizza', schema)
+module.exports = model('Pizza', schema)
