@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "jwtSecret": "afanaska",
+  "mongoUrl": "mongodb+srv://bobiklovik7:1234qwer@cluster0.iqtby.mongodb.net/app?retryWrites=true&w=majority"
+}
