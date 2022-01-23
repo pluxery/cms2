@@ -11,11 +11,12 @@ app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/pizza', pizzaRouter)
 
 const PORT = 5000
-const mongoUrl ='mongodb+srv://sema:123@cluster0.2hlcl.mongodb.net/Cluster0?retryWrites=true&w=majority'
+const mongoUrlSema ='mongodb+srv://sema:123@cluster0.2hlcl.mongodb.net/Cluster0?retryWrites=true&w=majority'
+const mongoUrlSveta = "mongodb+srv://bobiklovik7:1234qwer@cluster0.iqtby.mongodb.net/app?retryWrites=true&w=majority"
 
 async function start() {
     try {
-        await mongoose.connect(mongoUrl), {
+        await mongoose.connect(mongoUrlSema), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
