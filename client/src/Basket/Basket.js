@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import './Basket.css'
 import {Button} from "@mui/material";
 import BasketItem from "./BasketItem";
 import BasketModal from "./BasketModal";
 
 function Basket({products}) {
+
     return (
         <div className={'basket'}>
             <div>
