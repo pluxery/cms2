@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import Layout from "./Layout/Layout";
 import MyMap from "./Information/MyMap";
 import Contacts from "./Information/Contacts";
@@ -18,7 +18,6 @@ import Products from "../../client/src/Product/Products";
 import drinksIce from "../../client/src/Data/drinksIce";
 import drinksHot from "../../client/src/Data/drinksHot";
 import {AuthPage} from "./Auth/AuthPage";
-import List from "./Main/example";
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
@@ -29,21 +28,22 @@ export const useRoutes = isAuthenticated => {
                 <Route path="/contacts" exact element={<Layout children={<Contacts/>}/>}/>
                 <Route path="/quality" exact element={<Layout children={<Quality/>}/>}/>
                 <Route path="/help" exact element={<Layout children={<Help/>}/>}/>
-
                 <Route path="/basket" exact element={<Layout children={<Basket/>}/>}/>
-
                 <Route path="/main" exact element={<Layout children={<Main/>}/>}/>
+
                 <Route path="/drinks" exact element={<Layout children={<Category category={categoryWater}/>}/>}/>
                 <Route path="/desserts" exact element={<Layout children={<Category category={categoryDessert}/>}/>}/>
                 <Route path="/combo" exact element={<Layout children={<Category category={categoryCombo}/>}/>}/>
-                <Route path="/sale" exact element={<Layout children={<Category category={categorySale}/>}/>}/>
-                <Route path="/beer" exact element={<Layout children={<Category category={categoryBeer}/>}/>}/>
-
-                <Route path="/drinks/ice" exact element={<Layout children={<Products products={drinksIce}/>}/>}/>
-                <Route path="/drinks/hot" exact element={<Layout children={<Products products={drinksHot}/>}/>}/>
 
 
-                 <Route path="/list" exact element={<Layout children={<List/>}/>}/>
+                <Route path="/beer" exact
+                       element={<Layout children={<Products category={"beer"} url={"/api/drink"}/>}/>}/>
+                <Route path="/drinks/ice" exact
+                       element={<Layout children={<Products category={"ice"} url={"/api/drink"}/>}/>}/>
+                <Route path="/drinks/hot" exact
+                       element={<Layout children={<Products category={"hot"} url={"/api/drink"}/>}/>}/>
+                <Route path="/drinks/milk" exact
+                       element={<Layout children={<Products category={"milk"} url={"/api/drink"}/>}/>}/>
 
             </Routes>
         )
