@@ -14,7 +14,7 @@ function Main() {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'http://localhost:5000/api/pizza',
+                '/api/pizza',
             );
             setPizza(result.data);
         };
