@@ -29,9 +29,7 @@ function Sidebar() {
             <NavLink to={'/combo'} className={'sidebar__text-decoration'}>
                 <SidebarItem Icon={DiningOutlinedIcon} text={"Комбо"}/>
             </NavLink>
-            <NavLink to={'/sale'} className={'sidebar__text-decoration'}>
-                <SidebarItem Icon={LoyaltyOutlinedIcon} text={"Акции"}/>
-            </NavLink>
+
             <NavLink to={'/beer'} className={'sidebar__text-decoration'}>
                 <SidebarItem Icon={LiquorOutlinedIcon} text={"Пиво!"}/>
             </NavLink>

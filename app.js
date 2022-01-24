@@ -12,6 +12,7 @@ app.use(express.json({extended: true}))
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/pizza', require("./routes/pizza.routes"))
 app.use('/api/drink', require("./routes/drink.routes"))
+app.use('/api/dessert', require('./routes/dessert.routes'))
 
 const PORT = 5000
 const mongoUrlSema ='mongodb+srv://sema:123@cluster0.2hlcl.mongodb.net/cafe?retryWrites=true&w=majority'
