@@ -1,5 +1,5 @@
 const express = require('express')
-const Pizza = require("../models/Pizza");
+const PizzaSchema = require("../models/Pizza");
 
 const pizzaRoutes = express.Router();
 
@@ -14,8 +14,6 @@ pizzaRoutes.get("/", async (req, res) => {
         })
     }
 })
-
-
 
 module.exports = pizzaRoutes;
 

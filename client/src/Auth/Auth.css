@@ -63,3 +63,14 @@
     align-items: center;
 }
 
+.toast{
+    position:fixed;
+    z-index:1000;
+    top:6px;
+    text-align: center;
+    align-items: center;
+    background: white;
+    border: cornflowerblue 2px solid;
+    border-radius: 15px;
+    padding: 20px;
+}
