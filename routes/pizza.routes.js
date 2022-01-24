@@ -1,7 +1,7 @@
-const express = require('express')
-const PizzaSchema = require("../models/Pizza");
 
-const pizzaRoutes = express.Router();
+const {Router} = require("express");
+const pizzaRoutes = Router();
+const Pizza = require("../models/Pizza");
 
 
 pizzaRoutes.get("/", async (req, res) => {
