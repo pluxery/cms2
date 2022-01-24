@@ -1,0 +1,101 @@
+[
+  {
+    "image": "https://s82079.cdn.ngenix.net/330x0/u45dzhfwnw1bp9gx9cbdwvdq3icc",
+    "name": "Мороженое клубничное",
+    "price": 100,
+    "compound": "Нежное мягкое сливочное мороженое с клубничным топпингом",
+    "category": "ice-cream"
+
+  },
+  {
+    "image": "https://s82079.cdn.ngenix.net/330x0/wjqq9ij12k6242u1vo17febayrin",
+    "name": "Мороженое шоколадное",
+    "price": 100,
+    "compound": "Нежное мягкое сливочное мороженое с шоколадным топпингом",
+    "category": "ice-cream"
+  },
+  {
+    "image": "https://s82079.cdn.ngenix.net/330x0/01gnw3mdgm55c69ebr95qzkmmf0f",
+    "name": "Мороженое шоколадное",
+    "price": 100,
+    "compound": "Нежное мягкое сливочное мороженое с карамельным топпингом",
+    "category": "ice-cream"
+  },
+  {
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/3664b90773914229ace5ed1b32ae8324_366x366.jpeg",
+    "name": "Пончики Тройной шоколад и Клубничный",
+    "price": 250,
+    "compound": "Такие разные, но вместе. Один пончик с шоколадной начинкой и посыпкой, а другой с клубничной начинкой внутри и яркой посыпкой снаружи",
+    "category": "donut"
+  },
+  {
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/e168f60e82014ac8947d7b8bf8a53eaf_366x366.jpeg",
+    "name": "2 Клубничных пончика",
+    "price": 250,
+    "compound": "Самый яркий дуэт. Два пончика с клубничной начинкой и разноцветной посыпкой",
+    "category": "donut"
+  },
+  {
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/1fdcd3f7405742dbbb02d006d8f75a2b_366x366.jpeg",
+    "name": "2 Пончика Тройной шоколад",
+    "price": 250,
+    "compound": "Этот пончик такой шоколадный, что хочется попробовать дважды. Два пончика с шоколадной начинкой и посыпкой.",
+    "category": "donut"
+  },
+  {
+    "image": "https://s82079.cdn.ngenix.net/330x0/2pteg84544aulwp0n3haxkrbtet2",
+    "name": "Донат Карамельный",
+    "price": 100,
+    "compound": "Нежный донат с карамелью",
+    "category": "donut"
+  },
+  {
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/4c4be1059e5c4643887258b0ff49a557_366x366.jpeg",
+    "name": "Вишневый пирог",
+    "price": 150,
+    "compound": "Это не просто десерт, а вишенка на торте! Творожно-песочное тесто с ягодами, заварным кремом и лепестками миндаля.",
+    "category": "cake"
+  },
+  {
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/5ffff27c9c2d488eb6cec35c27ebff9a_366x366.jpeg",
+    "name": "Чизкейк Нью-Йорк",
+    "price": 150,
+    "compound": "Мы перепробовали тысячу десертов и наконец нашли любимца гостей — нежнейший творожный чизкейк.",
+    "category": "cake"
+  },
+  {
+    "image": "https://s82079.cdn.ngenix.net/330x0/c18jaumx0y62o893h74wkf0uprmj",
+    "name": "Морковный торт",
+    "price": 100,
+    "compound": "Нежный торт с кусочками сладкой моркови.",
+    "category": "cake"
+  },
+  {
+    "image": "https://s82079.cdn.ngenix.net/330x0/zrzg1wqetpw4ups3p9x6p6d0owie",
+    "name": "Пирожок клубника - сливочный сыр",
+    "price": 50,
+    "compound": "Пирожок из хрустящего теста с клубникой и сливочным сыром",
+    "category": "cake"
+  },
+  {
+    "image": "https://s82079.cdn.ngenix.net/330x0/cu4mbcwvutf5np63seyme9owld9n",
+    "name": "Пирожок с вишней",
+    "price": 50,
+    "compound": "Пирожок из хрустящего теста со сладкой начинкой из вишни",
+    "category": "cake"
+  },
+  {
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/6eacb241458547c68a570d86954568aa_366x366.jpeg",
+    "name": "Бруслетики, 16 шт",
+    "price": 200,
+    "compound": "Это задорные сладкие рулетики, в которых закрутился микс из натуральной брусники и сгущенного молока.",
+    "category": "cake"
+  },
+  {
+    "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/ef501f49a9154be6be5a4faba03d9b76_366x366.jpeg",
+    "name": "Рулетики с корицей, 16 шт",
+    "price": 200,
+    "compound": "Десерт, одобренный нашими бабушками. Горячие сладкие рулетики с пряной корицей и сахаром.",
+    "category": "cake"
+  }
+]

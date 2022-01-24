@@ -7,17 +7,16 @@ import Quality from "./Information/Quality";
 import Help from "./Information/Help";
 import Basket from "../../client/src/Basket/Basket";
 import Main from "../../client/src/Main/Main";
-import pizza from "../../client/src/Data/Pizza";
 import Category from "../../client/src/Category/Category";
 import categoryWater from "../../client/src/Data/categoryWater";
 import categoryDessert from "../../client/src/Data/categoryDessert";
 import categoryCombo from "../../client/src/Data/categoryCombo";
-import categorySale from "../../client/src/Data/categorySale";
-import categoryBeer from "../../client/src/Data/categoryBeer";
 import Products from "../../client/src/Product/Products";
-import drinksIce from "../../client/src/Data/drinksIce";
-import drinksHot from "../../client/src/Data/drinksHot";
+
 import {AuthPage} from "./Auth/AuthPage";
+
+const apiDrinks = "/api/drink";
+const apiDesserts = "/api/dessert";
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
@@ -37,13 +36,20 @@ export const useRoutes = isAuthenticated => {
 
 
                 <Route path="/beer" exact
-                       element={<Layout children={<Products category={"beer"} url={"/api/drink"}/>}/>}/>
+                       element={<Layout children={<Products category={"beer"} url={apiDrinks}/>}/>}/>
                 <Route path="/drinks/ice" exact
-                       element={<Layout children={<Products category={"ice"} url={"/api/drink"}/>}/>}/>
+                       element={<Layout children={<Products category={"ice"} url={apiDrinks}/>}/>}/>
                 <Route path="/drinks/hot" exact
-                       element={<Layout children={<Products category={"hot"} url={"/api/drink"}/>}/>}/>
+                       element={<Layout children={<Products category={"hot"} url={apiDrinks}/>}/>}/>
                 <Route path="/drinks/milk" exact
-                       element={<Layout children={<Products category={"milk"} url={"/api/drink"}/>}/>}/>
+                       element={<Layout children={<Products category={"milk"} url={apiDrinks}/>}/>}/>
+
+                <Route path="/desserts/ice-cream" exact
+                       element={<Layout children={<Products category={"ice-сream"} url={apiDesserts}/>}/>}/>
+                <Route path="/desserts/gingerbread" exact
+                       element={<Layout children={<Products category={"donat"} url={apiDesserts}/>}/>}/>
+                <Route path="/desserts/cake" exact
+                       element={<Layout children={<Products category={"cake"} url={apiDesserts}/>}/>}/>
 
             </Routes>
         )

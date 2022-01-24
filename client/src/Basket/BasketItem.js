@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import './Basket.css'
 import {Button} from "@mui/material";
-import drinksIce from "../Data/drinksIce";
 import pizza from "../Data/Pizza";
 
 function Basket({product = pizza[0]}) {

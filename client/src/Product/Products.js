@@ -17,13 +17,13 @@ function Products({category, url}) {
         <div className={'category'}>
 
             <div className={'category-row'}>
-              {products.map((item) => {
-                if (item.category === category) {
-                    return (
-                        <ProductBox product={item}/>
-                    )
-                }
-            })}
+                {products.map((item) => {
+                    if (item.category === category) {
+                        return (
+                            <ProductBox product={item}/>
+                        )
+                    }
+                })}
 
 
             </div>
