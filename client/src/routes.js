@@ -16,7 +16,7 @@ import Products from "../../client/src/Product/Products";
 import {AuthPage} from "./Auth/AuthPage";
 
 const apiDrinks = "/api/drink";
-const apiDesserts = "/api/dessert";
+const apiDesserts = '/api/dessert';
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
@@ -45,9 +45,9 @@ export const useRoutes = isAuthenticated => {
                        element={<Layout children={<Products category={"milk"} url={apiDrinks}/>}/>}/>
 
                 <Route path="/desserts/ice-cream" exact
-                       element={<Layout children={<Products category={"ice-сream"} url={apiDesserts}/>}/>}/>
+                       element={<Layout children={<Products category={"ice-cream"} url={apiDesserts}/>}/>}/>
                 <Route path="/desserts/gingerbread" exact
-                       element={<Layout children={<Products category={"donat"} url={apiDesserts}/>}/>}/>
+                       element={<Layout children={<Products category={"donut"} url={apiDesserts}/>}/>}/>
                 <Route path="/desserts/cake" exact
                        element={<Layout children={<Products category={"cake"} url={apiDesserts}/>}/>}/>
 
