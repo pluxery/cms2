@@ -1,7 +1,7 @@
 let categoryCombo = [
     {
         image:'https://s82079.cdn.ngenix.net/330x0/wjqq9ij12k6242u1vo17febayrin',
-        name:'2=3'
+        name:'2=3',
     },
     {
         image:'https://s82079.cdn.ngenix.net/330x0/H7zG8BhzscDEjpudqHH1eU8J.png',
