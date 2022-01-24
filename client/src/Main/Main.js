@@ -5,9 +5,22 @@ import ProductBox from "../Product/ProductBox";
 import {NavLink} from "react-router-dom";
 import {useHttp} from "../hooks/http.hook";
 import {Button} from "@mui/material";
+import axios from "axios";
 
 
-function Main({pizza}) {
+function Main() {
+    const [pizza, setPizza] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios(
+                'http://localhost:5000/api/pizza',
+            );
+            setPizza(result.data);
+        };
+        fetchData();
+    }, []);
+
 
     return (
         <div className={'main'}>
@@ -19,36 +32,13 @@ function Main({pizza}) {
                 </div>
 
                 <div className={'main__pizza-tabs'}>
-                    <NavLink to={'/popular'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Хит'} pizza={pizza}/>
-                    </NavLink>
-                    <NavLink to={'/acute'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Острая'} pizza={pizza}/>
-                    </NavLink>
-                    <NavLink to={'/new'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Новинка'} pizza={pizza}/>
-                    </NavLink>
-                    <NavLink to={'/meet'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Мясная'} pizza={pizza}/>
-                    </NavLink>
-                    <NavLink to={'/vegan'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Вегатаринская'} pizza={pizza}/>
-                    </NavLink>
+                    //Search
                 </div>
             </div>
             <div className={'main__pizza'}>
-                <ProductBox product={pizza[0]}/>
-                <ProductBox product={pizza[1]}/>
-                <ProductBox product={pizza[2]}/>
-                <ProductBox product={pizza[3]}/>
-                <ProductBox product={pizza[0]}/>
-                <ProductBox product={pizza[3]}/>
-                <ProductBox product={pizza[2]}/>
-                <ProductBox product={pizza[1]}/>
-                <ProductBox product={pizza[0]}/>
-                <ProductBox product={pizza[1]}/>
-                <ProductBox product={pizza[2]}/>
-                <ProductBox product={pizza[0]}/>
+                {pizza.map(item => (
+                <ProductBox product={item}/>
+            ))}
             </div>
 
         </div>

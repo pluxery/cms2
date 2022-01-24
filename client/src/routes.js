@@ -32,7 +32,7 @@ export const useRoutes = isAuthenticated => {
 
                 <Route path="/basket" exact element={<Layout children={<Basket/>}/>}/>
 
-                <Route path="/main" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
+                <Route path="/main" exact element={<Layout children={<Main/>}/>}/>
                 <Route path="/drinks" exact element={<Layout children={<Category category={categoryWater}/>}/>}/>
                 <Route path="/desserts" exact element={<Layout children={<Category category={categoryDessert}/>}/>}/>
                 <Route path="/combo" exact element={<Layout children={<Category category={categoryCombo}/>}/>}/>
@@ -42,11 +42,6 @@ export const useRoutes = isAuthenticated => {
                 <Route path="/drinks/ice" exact element={<Layout children={<Products products={drinksIce}/>}/>}/>
                 <Route path="/drinks/hot" exact element={<Layout children={<Products products={drinksHot}/>}/>}/>
 
-                <Route path="/popular" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
-                <Route path="/new" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
-                <Route path="/meet" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
-                <Route path="/vegan" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
-                <Route path="/acute" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
 
                  <Route path="/list" exact element={<Layout children={<List/>}/>}/>
 
