@@ -1,0 +1,59 @@
+[
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/srrljqwe3621gturux3vfaraibcy",
+        "name": "Кофе",
+        "price": 130,
+        "compound": "кофе, вода, сахар...",
+        "category": "hot"
+
+    },
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/srrljqwe3621gturux3vfaraibcy",
+        "name": "Чай",
+        "price": 120,
+        "compound": "чай, вода, сахар...",
+        "category": "hot"
+    },
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/srrljqwe3621gturux3vfaraibcy",
+        "name": "coca-cola 0,5",
+        "price": 70,
+        "compound": "химия всякая,вода, сахар...",
+        "category": "ice"
+    },
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/b6lctttuu6cbdw4mspwjf4y5up7f",
+        "name": "Lipton 0,5",
+        "price": 80,
+        "compound": "лимон, чай, вода, сахар...",
+        "category": "ice"
+    },
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/UYGZQWQHiqf75JWdDBZn68Bq.png",
+        "name": "клубничный милшейк",
+        "price": 100,
+        "compound": "молоко, клубника,вода, сахар....",
+        "category": "milk"
+    },
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/aMmmgqSDugPuZWyrCQANX3pE.png",
+        "name": "шоколадный милкшейк",
+        "price": 100,
+        "compound": "молоко, шоколад ,вода, сахар...",
+        "category": "milk"
+    },
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/09u7bm727xojeoowu9rv6wms69j8",
+        "name": "пиво BUD светлое",
+        "price": 110,
+        "compound": "вода, алк 0%...",
+        "category": "beer"
+    },
+    {
+        "image": "https://s82079.cdn.ngenix.net/330x0/09u7bm727xojeoowu9rv6wms69j8",
+        "name": "пиво BUD темное",
+        "price": 110,
+        "compound": "вода, алк 0%...",
+        "category": "beer"
+    }
+]

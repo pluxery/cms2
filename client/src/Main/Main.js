@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import './Main.css'
 import Tab from "./Tab";
 import ProductBox from "../Product/ProductBox";
 import {NavLink} from "react-router-dom";
+import {useHttp} from "../hooks/http.hook";
+import {Button} from "@mui/material";
+
 
 function Main({pizza}) {
-    return (
 
+    return (
         <div className={'main'}>
             <div>
                 <div className={'main-img'}>
@@ -20,7 +23,7 @@ function Main({pizza}) {
                         <Tab name={'Хит'} pizza={pizza}/>
                     </NavLink>
                     <NavLink to={'/acute'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Острая'} pizza={pizza} />
+                        <Tab name={'Острая'} pizza={pizza}/>
                     </NavLink>
                     <NavLink to={'/new'} className={'sidebar__text-decoration'}>
                         <Tab name={'Новинка'} pizza={pizza}/>
