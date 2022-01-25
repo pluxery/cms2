@@ -1,16 +1,30 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import '../Category/Category.css'
 import CategoryBox from "../Category/CategoryBox";
 import {NavLink} from "react-router-dom";
 import ProductBox from "./ProductBox";
+import axios from "axios";
 
-function Products({products}) {
+function Products() {
+    const [products, setProduct] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios(
+                '/api/drink',
+            );
+            setProduct(result.data);
+        };
+        fetchData();
+    }, []);
     return (
         <div className={'category'}>
 
             <div className={'category-row'}>
-                <ProductBox product={products[0]}/>
-                <ProductBox product={products[1]}/>
+                {products.map(item => (
+                    <ProductBox product={item}/>))}
+
+
             </div>
         </div>
     );
