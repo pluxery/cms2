@@ -1,13 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import './Category.css'
 import CategoryBox from "./CategoryBox";
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 
 function Category({category}) {
-    return (
-        <div className={'category'}>
 
-            <div className={'category-row'}>
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
+
+    return (
+        <div
+            style={{ background: `${theme.cbg}`,}}
+            className={'category'}>
+            <div
+                className={'category-row'}>
 
                 {category.map(item => (
                     <CategoryBox image={item.image} category={item.name} link={item.link}/>

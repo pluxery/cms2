@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './Main.css'
 import ProductBox from "../Product/ProductBox";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 
 function Main() {
@@ -24,6 +25,9 @@ function Main() {
         return pizzas.name.toLowerCase().includes(value.toLowerCase())
     })
 
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
+
     return (
         <div className={'main'}>
                 <div className={'main-img'}>
@@ -33,9 +37,15 @@ function Main() {
                 </div>
 
             <div className="search">
-                <div className="search__input">
+                <div
+                    style={{background: `${theme.element}`}}
+                    className="search__input">
                     <SearchIcon className="search__icon"/>
                     <input
+                        style={{
+                            background: `${theme.element}`,
+                            color:`${theme.text1}`
+                        }}
                         placeholder="Поиск"
                         type="text"
                         onChange={(event) => setValue(event.target.value)}

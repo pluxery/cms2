@@ -17,8 +17,11 @@ const ThemeContextProvider = ({children}) => {
         mainbg: "hsl(207, 26%, 17%)",
         bg: "#ee9836",
         textheader: "#ffffff",
-        hover: "#fadebf",
         text2: "#ee9836",
+        inf: "#2b3945",
+        ctext:"#ee9836",
+        cbg:"hsl(207, 26%, 17%)",
+        container:"rgb(141,111,74)",
 
     });
     const [light] = useState({
@@ -28,8 +31,12 @@ const ThemeContextProvider = ({children}) => {
         bgfordvfu: "#1e90ff",
         textheader: "#1e90ff",
         bg: "#ffffff",
-        hover: "#dcf1fa",
         text2: "#1e90ff",
+        element: "#ffffff",
+        inf: "#ecebeb",
+        ctext:"#111517",
+        cbg:"#f2fafe",
+        container:"rgb(215, 242, 255)",
     });
 
     let toggleTheme = () => {

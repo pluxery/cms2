@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import '../Category/Category.css'
 import ProductBox from "./ProductBox";
 import axios from "axios";
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 function Products({category, url}) {
     const [products, setProduct] = useState([]);
@@ -14,10 +15,14 @@ function Products({category, url}) {
         fetchData();
     }, []);
 
-    return (
-        <div className={'category'}>
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
 
-            <div className={'category-row'}>
+    return (
+        <div style={{background: `${theme.cbg}`}}
+            className={'category'}>
+            <div
+                className={'category-row'}>
                 {products.map((item) => {
                     if (item.category === category) {
                         return (

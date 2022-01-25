@@ -24,29 +24,17 @@ function ProductModal({product}) {
     const {isLightTheme, light, dark} = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;
 
-
     return (
         <>
             <Button
-                style={{
-                    color: `${theme.text2}`,
-                }}
+                style={{color: `${theme.text2}`}}
                 onClick={open}>Купить</Button>
-            <Modal
-                style={{
-                    background: `${theme.mainbg}`,
-                }}>
+            <Modal>
                 <div
-                    style={{
-                        background: `${theme.mainbg}`,
-                    }}
-                    className={'product-border'}>
-                    <div
-                        style={{
-                            background: `${theme.mainbg}`,
-                            padding: `${theme.mainbg}`
-                        }}
-                        className={'product'}>
+                    style={{color: `${theme.text1}`}}
+                    className={theme === dark ? 'product-border-dark' : 'product-border-light'}>
+                    <div style={{background: `${theme.mainbg}`}}
+                         className={'product'}>
                         <div>
                             <img className={'product__img-size'} src={product.image} alt={'image not found'}/>
                         </div>
@@ -56,17 +44,20 @@ function ProductModal({product}) {
                             <p className={'product__price-text'}>{product.price + " рублей"}</p>
                             <p className={'product__compound-text'}>{"Состав: " + product.compound}</p>
                             <div className={'product__count-button'}>
-                                <Button className={"basketItem__add"} onClick={() => setCount(count + 1)}>+</Button>
+                                <Button
+                                    className={"basketItem__add"} onClick={() => setCount(count + 1)}>+</Button>
                                 <p className={'text-weight'}>{count > 0 ? count : setCount(1)}</p>
                                 <Button className={"basketItem__add"} onClick={() => setCount(count - 1)}>-</Button>
                             </div>
-                            <Button onClick={addToBasketHandler} className={'product__button-add'}>Добавить</Button>
+                            <Button
+                                onClick={addToBasketHandler}
+                                className={theme === dark ? 'product__button-add-dark' : 'product__button-add-light'}>
+                                Добавить
+                            </Button>
                         </div>
                     </div>
                     <div
-                        style={{
-                            background: `${theme.mainbg}`,
-                        }}
+                        style={{background: `${theme.mainbg}`}}
                         className={'product__footer'}>
                         <Button
                             className={'product__button-close'} onClick={close}>Х</Button>
