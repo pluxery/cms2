@@ -1,10 +1,6 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import './Main.css'
-import Tab from "./Tab";
 import ProductBox from "../Product/ProductBox";
-import {NavLink} from "react-router-dom";
-import {useHttp} from "../hooks/http.hook";
-import {Button} from "@mui/material";
 import axios from "axios";
 
 
@@ -14,7 +10,7 @@ function Main() {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'http://localhost:5000/api/pizza',
+                '/api/pizza',
             );
             setPizza(result.data);
         };

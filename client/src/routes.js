@@ -18,7 +18,6 @@ import Products from "../../client/src/Product/Products";
 import drinksIce from "../../client/src/Data/drinksIce";
 import drinksHot from "../../client/src/Data/drinksHot";
 import {AuthPage} from "./Auth/AuthPage";
-import List from "./Main/example";
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
@@ -41,9 +40,6 @@ export const useRoutes = isAuthenticated => {
 
                 <Route path="/drinks/ice" exact element={<Layout children={<Products products={drinksIce}/>}/>}/>
                 <Route path="/drinks/hot" exact element={<Layout children={<Products products={drinksHot}/>}/>}/>
-
-
-                 <Route path="/list" exact element={<Layout children={<List/>}/>}/>
 
             </Routes>
         )
