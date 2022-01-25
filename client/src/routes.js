@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Layout from "./Layout/Layout";
 import MyMap from "./Information/MyMap";
@@ -12,13 +12,13 @@ import categoryWater from "../../client/src/Data/categoryWater";
 import categoryDessert from "../../client/src/Data/categoryDessert";
 import categoryCombo from "../../client/src/Data/categoryCombo";
 import Products from "../../client/src/Product/Products";
-
 import {AuthPage} from "./Auth/AuthPage";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = "/api/dessert";
 
 export const useRoutes = isAuthenticated => {
+
     if (isAuthenticated) {
         return (
             <Routes>
@@ -50,7 +50,6 @@ export const useRoutes = isAuthenticated => {
                        element={<Layout children={<Products category={"donut"} url={apiDesserts}/>}/>}/>
                 <Route path="/desserts/cake" exact
                        element={<Layout children={<Products category={"cake"} url={apiDesserts}/>}/>}/>
-
             </Routes>
         )
     }
