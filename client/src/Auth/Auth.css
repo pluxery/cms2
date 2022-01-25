@@ -1,13 +1,13 @@
 
 .auth__content{
-    border: #a80b00 2px solid;
     width: 100%;
     display: flex;
     justify-content: center;
     background-color: #f2fafe;
 }
 
-.auth {
+
+.auth{
     position: relative;
     width: 100vh;
     height: 100vh;
@@ -16,7 +16,6 @@
     align-items: center;
     background-color: #ffffff;
     background-image: url('https://filling-form.ru/pars_docs/refs/91/90085/90085_html_4156c84.png');
-
 }
 
 .auth__body{

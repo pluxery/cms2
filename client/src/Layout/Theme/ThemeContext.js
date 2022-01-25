@@ -14,7 +14,7 @@ const ThemeContextProvider = ({children}) => {
         bgfordvfu: "hsl(213,17%,23%)",
         text1: "#ffffff",
         element: "#2b3945",
-        mainbg: "hsl(207, 26%, 17%)",
+        mainbg: "#202C37FF",
         bg: "#ee9836",
         textheader: "#ffffff",
         text2: "#ee9836",

@@ -8,6 +8,7 @@ import { ThemeContext } from "../Theme/ThemeContext";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMoon} from "@fortawesome/free-solid-svg-icons";
+import {Button} from "@mui/material";
 
 function Header() {
     const navigate = useNavigate()
@@ -24,68 +25,49 @@ function Header() {
 
     return (
 
-        <div
-            style={{
+        <div style={{
                 background: `${theme.bg}`,
                 color: `${theme.text}`,
             }}
 
             className={'header__container'}>
             <div className={'header__title'}>
-                <h2
-                    style={{
+                <h2 style={{
                         background: `${theme.bgfordvfu}`,
-                        color: `${theme.text}`,
-                    }}
+                        color: `${theme.text}`}}
                 >WWW.DVFU.RU</h2>
             </div>
 
-            <div
-                style={{
-                    background: `${theme.bg}`
-                }}
+            <div style={{background: `${theme.bg}`}}
                 className={'header__menu'}>
                 <div className={'header__logo-fefu'}>
                     <img src={logo} alt="logo" width="80" height="80"/>
                 </div>
 
-                <div
-                    className={'header__info'}>
+                <div className={'header__info'}>
 
                     <NavLink to={'/contacts'} className={'blue__text'}>
-                        <p
-                            style={{
+                        <p style={{
                                 color: `${theme.textheader}`,
-                                background: `${theme.bg}`
-                            }}
-                        >Контакты</p>
+                                background: `${theme.bg}`}}>Контакты</p>
                     </NavLink>
 
                     <NavLink to={'/help'} className={'blue__text'}>
-                        <p
-                            style={{
+                        <p style={{
                                 color: `${theme.textheader}`,
-                                background: `${theme.bg}`
-                            }}
-                        >Помощь</p>
+                                background: `${theme.bg}`}}>Помощь</p>
                     </NavLink>
 
                     <NavLink to={'/map'} className={'blue__text'}>
-                        <p
-                            style={{
+                        <p style={{
                                 color: `${theme.textheader}`,
-                                background: `${theme.bg}`
-                            }}
-                        >Наш адрес</p>
+                                background: `${theme.bg}`}}>Наш адрес</p>
                     </NavLink>
 
                     <NavLink to={'/quality'} className={'blue__text'}>
-                        <p
-                            style={{
+                        <p style={{
                                 color: `${theme.textheader}`,
-                                background: `${theme.bg}`,
-                            }}
-                            className={'blue__text'}>Качество</p>
+                                background: `${theme.bg}`}} className={'blue__text'}>Качество</p>
                     </NavLink>
                 </div>
 
@@ -102,8 +84,7 @@ function Header() {
                             className={'header__profile-data1'}/>
                     </NavLink>
 
-                    <p
-                        style={{
+                    <p style={{
                             color: `${theme.textheader}`,
                             background: `${theme.bg}`
                         }}
@@ -111,12 +92,9 @@ function Header() {
                        onClick={logoutHandler}>
                         Выйти</p>
 
-                    <button
-
-                        onClick={() => toggleTheme()}
-                    >
-                        <FontAwesomeIcon icon={faMoon}  />
-                    </button>
+                    <Button onClick={() => toggleTheme()}>
+                        {theme === dark ?  '🌙'  : '☀️'}
+                    </Button>
 
                 </div>
             </div>

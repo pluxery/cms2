@@ -1,5 +1,4 @@
 .basket {
-
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -7,21 +6,17 @@
 }
 
 .basket > div {
-
     width: 1200px;
-
 }
 
 .basket__header {
     display: flex;
     justify-content: center;
-
 }
 
 .basket__body {
     padding: 20px;
     border-radius: 20px;
-
 }
 
 .basket__footer {
@@ -32,7 +27,7 @@
 .basket__img {
     width: 80px;
     height: 80px;
-
+    border-radius: 200px;
 }
 
 .basketItem__row {
@@ -42,11 +37,9 @@
     padding-bottom: 20px;
     margin-bottom: 30px;
     border-bottom: #a9a7a7 1px solid;
-
 }
 
 .basketItem__first {
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -55,7 +48,6 @@
 }
 
 .basketItem__two {
-
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
