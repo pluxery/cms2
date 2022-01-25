@@ -56,11 +56,8 @@ export const AuthPage = () => {
     return (
         <div className={'auth__content'}>
             <div className={'auth'}>
-
                 <div className={'auth__body'}>
-
                     <h2 className={'auth__tittle'}>Авторизация</h2>
-
                     <div className={'auth__inputs'}>
                         <input
                             placeholder="Введите email"
