@@ -1,40 +1,41 @@
-.basket{
+.basket {
 
     display: flex;
     align-items: flex-start;
     justify-content: center;
     width: 100vw;
 }
-.basket>div{
+
+.basket > div {
 
     width: 1200px;
 
 }
 
-.basket__header{
+.basket__header {
     display: flex;
     justify-content: center;
 
 }
 
-.basket__body{
-//background-color: #f2fafe;
+.basket__body {
     padding: 20px;
     border-radius: 20px;
 
 }
-.basket__footer{
+
+.basket__footer {
     display: flex;
     justify-content: flex-end;
 }
 
-.basket__img{
+.basket__img {
     width: 80px;
-
+    height: 80px;
 
 }
 
-.basketItem__row{
+.basketItem__row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -43,7 +44,8 @@
     border-bottom: #a9a7a7 1px solid;
 
 }
-.basketItem__first{
+
+.basketItem__first {
 
     display: flex;
     flex-direction: row;
@@ -52,7 +54,7 @@
     justify-content: space-evenly;
 }
 
-.basketItem__two{
+.basketItem__two {
 
     display: flex;
     flex-direction: row;
@@ -60,17 +62,19 @@
     align-items: center;
     width: 400px;
 }
-.basketItem__add{
-    background-color: dodgerblue !important;
+
+.basketItem__add {
+    background-color: black !important;
     color: white !important;
     border-radius: 50px !important;
 }
 
-.text-weight{
+.text-weight {
     font-weight: 600;
     font-size: 19px;
 }
-.basket__button-buy{
+
+.basket__button-buy {
     text-decoration: none;
     text-align: center;
     padding: 10px;
@@ -85,7 +89,7 @@
     margin-right: 30px !important;
 }
 
-.basketItem__button-del{
+.basketItem__button-del {
     text-decoration: none;
     text-align: center;
     padding: 10px;

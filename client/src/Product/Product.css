@@ -21,6 +21,15 @@
 .product__info{
     margin-left: 30px;
 }
+.product__count-button{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40px;
+
+}
 .product__category-text {
     font-size: 32px;
     font-weight: 600;

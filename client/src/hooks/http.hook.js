@@ -1,5 +1,13 @@
 import {useState, useCallback} from 'react'
 
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
+
 export const useHttp = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
@@ -18,7 +26,7 @@ export const useHttp = () => {
             if (!response.ok) {
                 throw new Error(data.message || 'Что-то пошло не так')
             }
-
+            sleep(3000)
             setLoading(false)
 
             return data
@@ -31,5 +39,5 @@ export const useHttp = () => {
 
     const clearError = useCallback(() => setError(null), [])
 
-    return { loading, request, error, clearError }
+    return {loading, request, error, clearError}
 }

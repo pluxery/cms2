@@ -13,6 +13,7 @@ function Products({category, url}) {
         };
         fetchData();
     }, []);
+
     return (
         <div className={'category'}>
 

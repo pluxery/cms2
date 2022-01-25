@@ -1,23 +1,28 @@
 import React, {useState} from "react";
 import './Basket.css'
 import {Button} from "@mui/material";
-import pizza from "../Data/Pizza";
+import {useDispatch} from "react-redux";
+import {delProduct} from "../redux/busket/reducer";
 
-function Basket({product = pizza[0]}) {
-    let [count, setCount] = useState(1);
+function Basket({product}) {
+    const dispatch = useDispatch()
+
+    const delToBasketHandler = (e) => {
+        e.stopPropagation();
+        dispatch(delProduct(product.id));
+    }
+
     return (
         <div className={'basketItem__row'}>
             <div className={'basketItem__first'}>
-                <img src={product.image} alt={'image not found'} className={'basket__img'}/>
+                <img className={'basket__img'} src={product.image} alt={'image not found'}/>
                 <p className={'text-weight'}>{product.name}</p>
             </div>
 
             <div className={'basketItem__two'}>
-                <p className={'text-weight'}>{count * product.price + 'руб.'}</p>
-                <Button className={"basketItem__add"} onClick={() => setCount(count + 1)}>+</Button>
-                <p className={'text-weight'} >{count}</p>
-                <Button className={"basketItem__add"} onClick={() => setCount(count - 1)}>-</Button>
-                <Button className={'basketItem__button-del'}>Удалить</Button>
+                <p className={'text-weight'}>{product.price + 'руб.'}</p>
+
+                <Button onClick={delToBasketHandler} className={'basketItem__button-del'}>Удалить</Button>
             </div>
         </div>
 

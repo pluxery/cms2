@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
+import {useDispatch, useSelector} from "react-redux";
 import './Basket.css'
-import {Button} from "@mui/material";
 import BasketItem from "./BasketItem";
 import BasketModal from "./BasketModal";
-import pizza from "../Data/Pizza";
-import CategoryBox from "../Category/CategoryBox";
 
-function Basket({products = pizza}) {
+
+function Basket() {
+    const products = useSelector(state => state.basket.productsBasket);
+    const totalPrice = products.reduce((sum, product) => sum += product.price, 0)
 
     return (
         <div className={'basket'}>
@@ -16,11 +17,12 @@ function Basket({products = pizza}) {
                 </div>
 
                 <div className={'basket__body'}>
-
-                    {products.map(item => (
-                        <BasketItem product={item}/>
-                    ))}
+                    {products.length > 0 ?
+                        products.map(item => (
+                            <BasketItem product={item}/>
+                        )) : <h1 className={'header__profile-data'}>Корзина пуста</h1>}
                 </div>
+                <h2>{'Итого: ' + totalPrice + 'руб.'}</h2>
 
                 <div className={'basket__footer'}>
                     <BasketModal/>

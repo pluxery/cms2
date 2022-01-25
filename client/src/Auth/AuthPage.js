@@ -54,51 +54,53 @@ export const AuthPage = () => {
     }
 
     return (
-        <div className={'auth'}>
+        <div className={'auth__content'}>
+            <div className={'auth'}>
 
-            <div className={'auth__body'}>
+                <div className={'auth__body'}>
 
-                <h2 className={'auth__tittle'}>Авторизация</h2>
+                    <h2 className={'auth__tittle'}>Авторизация</h2>
 
-                <div className={'auth__inputs'}>
-                    <input
-                        placeholder="Введите email"
-                        id="email"
-                        type="text"
-                        name="email"
-                        value={form.email}
-                        onChange={changeHandler}
-                    />
-                    <label htmlFor="email"/>
+                    <div className={'auth__inputs'}>
+                        <input
+                            placeholder="Введите email"
+                            id="email"
+                            type="text"
+                            name="email"
+                            value={form.email}
+                            onChange={changeHandler}
+                        />
+                        <label htmlFor="email"/>
 
-                    <input
-                        placeholder="Введите пароль"
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={form.password}
-                        onChange={changeHandler}
-                    />
-                    <label htmlFor="email"/>
+                        <input
+                            placeholder="Введите пароль"
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={form.password}
+                            onChange={changeHandler}
+                        />
+                        <label htmlFor="email"/>
+                    </div>
+
+                    <div className={'auth__footer'}>
+                        <Button
+                            className="waves-effect waves-light btn blue"
+                            style={{marginRight: 10}}
+                            disabled={loading}
+                            onClick={loginHandler}>
+                            Войти
+                        </Button>
+
+                        <Button
+                            className="waves-effect waves-light btn blue"
+                            onClick={registerHandler}
+                            disabled={loading}>
+                            Регистрация
+                        </Button>
+                    </div>
+
                 </div>
-
-                <div className={'auth__footer'}>
-                    <Button
-                        className="waves-effect waves-light btn blue"
-                        style={{marginRight: 10}}
-                        disabled={loading}
-                        onClick={loginHandler}>
-                        Войти
-                    </Button>
-
-                    <Button
-                        className="waves-effect waves-light btn blue"
-                        onClick={registerHandler}
-                        disabled={loading}>
-                        Регистрация
-                    </Button>
-                </div>
-
             </div>
         </div>
 
