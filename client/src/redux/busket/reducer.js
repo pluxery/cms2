@@ -10,7 +10,10 @@ const basketSlice = createSlice({
             state.productsBasket.push(action.payload)
         },
         delProduct: (state, action) => {
-            state.productsBasket = state.productsBasket.filter(product => product.id !== action.payload)
+            const index = state.productsBasket.findIndex((product) => product.id === action.payload);
+            state.productsBasket.splice(index, 1);
+
+
         }
     }
 });

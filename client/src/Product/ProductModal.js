@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import './Product.css'
 import {Button} from "@mui/material";
 import {useModal} from "react-hooks-use-modal";
-import {addProduct} from "../redux/busket/reducer";
+import {addProduct, delProduct} from "../redux/busket/reducer";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 function ProductModal({product}) {
