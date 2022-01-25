@@ -1,5 +1,5 @@
 import React from "react";
-import image1 from './Image/image1.jpg';
+import img1 from './Image/img1.png';
 import "./Information.css"
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Icon24LogoVk } from '@vkontakte/icons';
@@ -9,7 +9,7 @@ function Contacts() {
     return (
        <div className={'contacts'}>
            <div className={'contacts-img'}>
-               <img src={image1} alt="image1" width="500" height="500"/>
+               <img src={img1} alt="image1" width="500" height="500"/>
            </div>
            <div className={'contacts-container'}>
                <div className={'contacts-container__info'}>

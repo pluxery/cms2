@@ -1,6 +1,6 @@
 import React from "react";
 import "./Map.css";
-import logo from "../Layout/Header/logo.jpeg";
+import logo from "../Layout/Header/logo.png";
 
 function Modal({ setOpenModal }) {
     return (

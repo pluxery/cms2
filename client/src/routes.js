@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Layout from "./Layout/Layout";
 import MyMap from "./Information/MyMap";
@@ -12,7 +12,6 @@ import categoryWater from "../../client/src/Data/categoryWater";
 import categoryDessert from "../../client/src/Data/categoryDessert";
 import categoryCombo from "../../client/src/Data/categoryCombo";
 import Products from "../../client/src/Product/Products";
-
 import {AuthPage} from "./Auth/AuthPage";
 import {store} from "./redux";
 import {Provider} from "react-redux";
@@ -21,6 +20,7 @@ const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
 
 export const useRoutes = isAuthenticated => {
+
     if (isAuthenticated) {
         return (
             <Provider store={store}>

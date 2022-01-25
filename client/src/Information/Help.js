@@ -1,5 +1,5 @@
 import React from "react";
-import image2 from './Image/image2.jpg';
+import img2 from './Image/img2.png';
 import "./Information.css"
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import MarkEmailUnreadIcon from '@mui/icons-material/MarkEmailUnread';
@@ -32,7 +32,7 @@ function Help() {
 
             </div>
             <div className={'contacts-img'}>
-                <img src={image2} alt="image2" width="500" height="500"/>
+                <img src={img2} alt="image2" width="500" height="500"/>
             </div>
         </div>
     );
