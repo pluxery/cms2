@@ -1,8 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require("cors");
 
 
 const app = express()
+
+app.use(cors());
 
 app.use(express.json({ extended: true }))
 
@@ -15,11 +18,11 @@ const mongoUrlSveta = "mongodb+srv://bobiklovik7:1234qwer@cluster0.iqtby.mongodb
 
 async function start() {
     try {
-        await mongoose.connect(mongoUrlSveta), {
+        await mongoose.connect(mongoUrlSveta, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
-        }
+        })
         app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
     } catch (e) {
         console.log('Server Error', e.message)

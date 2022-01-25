@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navigate, Redirect, Route, Routes} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import Layout from "./Layout/Layout";
 import MyMap from "./Information/MyMap";
 import Contacts from "./Information/Contacts";
@@ -18,6 +18,7 @@ import Products from "../../client/src/Product/Products";
 import drinksIce from "../../client/src/Data/drinksIce";
 import drinksHot from "../../client/src/Data/drinksHot";
 import {AuthPage} from "./Auth/AuthPage";
+import List from "./Main/example";
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
@@ -46,6 +47,8 @@ export const useRoutes = isAuthenticated => {
                 <Route path="/meet" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
                 <Route path="/vegan" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
                 <Route path="/acute" exact element={<Layout children={<Main pizza={pizza}/>}/>}/>
+
+                 <Route path="/list" exact element={<Layout children={<List/>}/>}/>
 
             </Routes>
         )
