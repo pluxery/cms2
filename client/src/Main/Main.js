@@ -1,7 +1,8 @@
-import React, { useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Main.css'
 import ProductBox from "../Product/ProductBox";
 import axios from "axios";
+import Search from "./Search";
 
 
 function Main() {
@@ -20,21 +21,16 @@ function Main() {
 
     return (
         <div className={'main'}>
-            <div>
                 <div className={'main-img'}>
                     <img className={'main__poster'}
                          src={'https://cdn.papajohns.ru//images/banners/bfb447d5ba9036a2b5eb0e1941fcd152.webp'}
                          alt={'image not found'}/>
                 </div>
-
-                <div className={'main__pizza-tabs'}>
-                    //Search
-                </div>
-            </div>
+            <Search/>
             <div className={'main__pizza'}>
                 {pizza.map(item => (
-                <ProductBox product={item}/>
-            ))}
+                    <ProductBox product={item}/>
+                ))}
             </div>
 
         </div>

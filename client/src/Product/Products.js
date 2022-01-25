@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 import '../Category/Category.css'
-import CategoryBox from "../Category/CategoryBox";
-import {NavLink} from "react-router-dom";
 import ProductBox from "./ProductBox";
 import axios from "axios";
 
