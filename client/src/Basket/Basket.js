@@ -3,8 +3,10 @@ import './Basket.css'
 import {Button} from "@mui/material";
 import BasketItem from "./BasketItem";
 import BasketModal from "./BasketModal";
+import pizza from "../Data/Pizza";
+import CategoryBox from "../Category/CategoryBox";
 
-function Basket({products}) {
+function Basket({products = pizza}) {
 
     return (
         <div className={'basket'}>
@@ -14,9 +16,10 @@ function Basket({products}) {
                 </div>
 
                 <div className={'basket__body'}>
-                    <BasketItem/>
-                    <BasketItem/>
-                    <BasketItem/>
+
+                    {products.map(item => (
+                        <BasketItem product={item}/>
+                    ))}
                 </div>
 
                 <div className={'basket__footer'}>

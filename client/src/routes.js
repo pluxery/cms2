@@ -15,7 +15,7 @@ import Products from "../../client/src/Product/Products";
 import {AuthPage} from "./Auth/AuthPage";
 
 const apiDrinks = "/api/drink";
-const apiDesserts = "/api/dessert";
+const apiDesserts = '/api/dessert';
 
 export const useRoutes = isAuthenticated => {
 
