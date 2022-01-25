@@ -25,8 +25,6 @@ function Products({category, url}) {
                         )
                     }
                 })}
-
-
             </div>
         </div>
     );

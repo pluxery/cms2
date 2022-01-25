@@ -11,18 +11,25 @@ const ThemeContextProvider = ({children}) => {
 
     const [isLightTheme, setIsLight] = useState(ls());
     const [dark] = useState({
-        bg: "hsl(209, 23%, 22%)",
-        text: "white",
+        bgfordvfu: "hsl(213,17%,23%)",
+        text1: "#ffffff",
         element: "#2b3945",
         mainbg: "hsl(207, 26%, 17%)",
-        shadow: "0 0 8px hsla(0, 0%, 11%, 0.8)",
+        bg: "#ee9836",
+        textheader: "#ffffff",
+        hover: "#fadebf",
+        text2: "#ee9836",
+
     });
     const [light] = useState({
-        text: "#111517",
+        text1: "#111517",
         inp: "#ffffff",
         mainbg: "#ffffff",
-        bg: "#1a9dda",
-        shadow: "0 0 8px hsla(0, 0%, 50%, 0.365)",
+        bgfordvfu: "#1e90ff",
+        textheader: "#1e90ff",
+        bg: "#ffffff",
+        hover: "#dcf1fa",
+        text2: "#1e90ff",
     });
 
     let toggleTheme = () => {

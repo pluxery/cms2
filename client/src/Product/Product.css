@@ -1,6 +1,7 @@
 .product__img-size{
     max-height: 300px;
     max-width: 300px;
+    border-radius: 200px;
 }
 .product__body{
     display: flex;
@@ -74,4 +75,9 @@
     background-color: white;
     display: flex;
     justify-content: end;
+}
+
+
+.categoryBox__img-size{
+    border-radius: 100px;
 }

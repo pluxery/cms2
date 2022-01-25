@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {useDispatch} from "react-redux";
 import './Product.css'
 import {Button} from "@mui/material";
 import {useModal} from "react-hooks-use-modal";
 import {addProduct} from "../redux/busket/reducer";
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 function ProductModal({product}) {
     const [Modal, open, close] = useModal('root', {
@@ -20,13 +21,32 @@ function ProductModal({product}) {
         }
     }
 
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
+
 
     return (
         <>
-            <Button onClick={open}>Купить</Button>
-            <Modal>
-                <div className={'product-border'}>
-                    <div className={'product'}>
+            <Button
+                style={{
+                    color: `${theme.text2}`,
+                }}
+                onClick={open}>Купить</Button>
+            <Modal
+                style={{
+                    background: `${theme.mainbg}`,
+                }}>
+                <div
+                    style={{
+                        background: `${theme.mainbg}`,
+                    }}
+                    className={'product-border'}>
+                    <div
+                        style={{
+                            background: `${theme.mainbg}`,
+                            padding: `${theme.mainbg}`
+                        }}
+                        className={'product'}>
                         <div>
                             <img className={'product__img-size'} src={product.image} alt={'image not found'}/>
                         </div>
@@ -43,8 +63,13 @@ function ProductModal({product}) {
                             <Button onClick={addToBasketHandler} className={'product__button-add'}>Добавить</Button>
                         </div>
                     </div>
-                    <div className={'product__footer'}>
-                        <Button className={'product__button-close'} onClick={close}>Х</Button>
+                    <div
+                        style={{
+                            background: `${theme.mainbg}`,
+                        }}
+                        className={'product__footer'}>
+                        <Button
+                            className={'product__button-close'} onClick={close}>Х</Button>
                     </div>
                 </div>
             </Modal>
