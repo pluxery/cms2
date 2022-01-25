@@ -25,13 +25,25 @@ function Header() {
     return (
 
         <div
+            style={{
+                background: `${theme.bg}`,
+                color: `${theme.text}`,
+            }}
+
             className={'header__container'}>
             <div className={'header__title'}>
                 <h2
+                    style={{
+                        background: `${theme.bgfordvfu}`,
+                        color: `${theme.text}`,
+                    }}
                 >WWW.DVFU.RU</h2>
             </div>
 
             <div
+                style={{
+                    background: `${theme.bg}`
+                }}
                 className={'header__menu'}>
                 <div className={'header__logo-fefu'}>
                     <img src={logo} alt="logo" width="80" height="80"/>
@@ -41,34 +53,69 @@ function Header() {
                     className={'header__info'}>
 
                     <NavLink to={'/contacts'} className={'blue__text'}>
-                        <p>Контакты</p>
+                        <p
+                            style={{
+                                color: `${theme.textheader}`,
+                                background: `${theme.bg}`
+                            }}
+                        >Контакты</p>
                     </NavLink>
 
                     <NavLink to={'/help'} className={'blue__text'}>
-                        <p>Помощь</p>
+                        <p
+                            style={{
+                                color: `${theme.textheader}`,
+                                background: `${theme.bg}`
+                            }}
+                        >Помощь</p>
                     </NavLink>
 
                     <NavLink to={'/map'} className={'blue__text'}>
-                        <p>Наш адрес</p>
+                        <p
+                            style={{
+                                color: `${theme.textheader}`,
+                                background: `${theme.bg}`
+                            }}
+                        >Наш адрес</p>
                     </NavLink>
 
                     <NavLink to={'/quality'} className={'blue__text'}>
-                        <p className={'blue__text'}>Качество</p>
+                        <p
+                            style={{
+                                color: `${theme.textheader}`,
+                                background: `${theme.bg}`,
+                            }}
+                            className={'blue__text'}>Качество</p>
                     </NavLink>
                 </div>
 
-                <div className={'header__profile'}>
-                    <NavLink to={'/basket'} className={'sidebar__text-decoration'}>
-                        <LocalGroceryStoreOutlinedIcon className={'header__profile-data'}/>
+                <div
+                    className={'header__profile'}>
+                    <NavLink
+                        to={'/basket'}
+                        className={'sidebar__text-decoration'}>
+                        <LocalGroceryStoreOutlinedIcon
+                            style={{
+                                color: `${theme.textheader}`,
+                                background: `${theme.bg}`
+                            }}
+                            className={'header__profile-data1'}/>
                     </NavLink>
 
-                    <p className={'header__profile-data'}
+                    <p
+                        style={{
+                            color: `${theme.textheader}`,
+                            background: `${theme.bg}`
+                        }}
+                        className={'header__profile-data'}
                        onClick={logoutHandler}>
                         Выйти</p>
 
-                    <button className='block cursor-pointer' onClick={() => toggleTheme()}>
-                        <FontAwesomeIcon icon={faMoon} className='mr-2' />
-                        Dark
+                    <button
+
+                        onClick={() => toggleTheme()}
+                    >
+                        <FontAwesomeIcon icon={faMoon}  />
                     </button>
 
                 </div>
