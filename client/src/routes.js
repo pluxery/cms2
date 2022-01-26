@@ -16,7 +16,7 @@ import {AuthPage} from "./Auth/AuthPage";
 import {store} from "./redux";
 import {Provider} from "react-redux";
 import ThemeContextProvider from "./Layout/Theme/ThemeContext";
-import Order from "./Order/Order";
+import Order from "../../client/src/Order/Order";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
