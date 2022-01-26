@@ -33,6 +33,7 @@ function BasketModal({subtotal}) {
             name: '',
             email: '',
             orderItems: products,
+            uniq: uniqProducts,
             totalPrice: totalPrice,
         }
     )

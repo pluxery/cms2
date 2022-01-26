@@ -33,6 +33,7 @@ orderRouter.post('/', [
                 phone: req.body.phone,
                 userId: req.body.userId,
                 orderItems: req.body.orderItems,
+                uniq: req.body.uniq,
                 address: req.body.address,
                 date: req.body.date,
                 totalPrice: req.body.totalPrice,

@@ -38,13 +38,14 @@ function OrderItem({order}) {
                     </td>
                     <td>
                         <div className={'order__body'}>
-                            {order.orderItems.map(item => {
+                            {order.uniq.map(item => {
                                 return <b>{item.name}</b>
                             })}
+
                         </div>
                     </td>
                     <tb>
-                        <div className={'order__body'}> {order.orderItems.map(item => {
+                        <div className={'order__body'}> {order.uniq.map(item => {
                             return <b>{order.orderItems.filter(e => e.name === item.name).length}</b>
                         })}</div>
                     </tb>
