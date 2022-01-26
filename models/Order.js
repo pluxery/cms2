@@ -3,16 +3,17 @@ const {Schema} = require("mongoose");
 
 const orderSchema = new Schema(
     {
-        phone: String,
+        phone: {type: String,required:true},
         userId: String,
-        orderItems: [],
-        uniq: [],
-        address: String,
-        date: String,
+        orderItems: {type:[], required: true},
+        uniq: {type:[], required: true},
+        address:{type: String,required:true},
         totalPrice: Number,
         email: String,
-        name: String,
+        name: {type: String,required:true},
 
+    },{
+            timestamps : true
     }
 );
 

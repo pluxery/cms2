@@ -1,56 +1,59 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Order.css'
 import {useSelector} from "react-redux";
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 function OrderItem({order}) {
     const products = useSelector(state => state.basket.productsBasket);
     const uniq = [...new Set(order.orderItems)];
+
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
 
 
     return (<>
             <table className="table">
                 <thead>
                 <tr>
-                    <th>
-                        <div className={'order__body'}>Телефон</div>
+                    <th style= {{background: `${theme.th}`}}>
+                        <div>Телефон</div>
                     </th>
-                    <th>
-                        <div className={'order__body'}>Адресс доставки</div>
+                    <th style= {{background: `${theme.th}`}}>
+                        <div>Адрес доставки</div>
                     </th>
-                    <th>
-                        <div className={'order__body'}>Товары</div>
+                    <th style= {{background: `${theme.th}`}}>
+                        <div>Товары</div>
                     </th>
-                    <th>
-                        <div className={'order__body'}>Кол-во</div>
+                    <th style= {{background: `${theme.th}`}}>
+                        <div>Кол-во</div>
                     </th>
-                    <th>
-                        <div className={'order__body'}>Сумма заказа</div>
+                    <th style= {{background: `${theme.th}`}}>
+                        <div>Сумма заказа</div>
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr style= {{background: `${theme.container}`}}>
                     <td>
-                        <div className={'order__body'}>{order.phone}</div>
+                        <div>{order.phone}</div>
                     </td>
                     <td>
-                        <div className={'order__body'}>{order.address}</div>
+                        <div>{order.address}</div>
                     </td>
                     <td>
-                        <div className={'order__body'}>
+                        <div>
                             {order.uniq.map(item => {
-                                return <b>{item.name}</b>
+                                return <div>{item.name}</div>
                             })}
-
                         </div>
                     </td>
-                    <tb>
-                        <div className={'order__body'}> {order.uniq.map(item => {
-                            return <b>{order.orderItems.filter(e => e.name === item.name).length}</b>
-                        })}</div>
-                    </tb>
                     <td>
-                        <div className={'order__body'}>{order.totalPrice + 'руб.'}</div>
+                        <div> {order.uniq.map(item => {
+                            return <div className={'quantity'}>{order.orderItems.filter(e => e.name === item.name).length}</div>
+                        })}</div>
+                    </td>
+                    <td>
+                        <div>{order.totalPrice + 'руб.'}</div>
                     </td>
                 </tr>
                 </tbody>

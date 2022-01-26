@@ -17,6 +17,7 @@ import {Provider} from "react-redux";
 import ThemeContextProvider from "./Layout/Theme/ThemeContext";
 import AdminPage from "./Admin/AdminPage";
 import Order from "./Order/Order";
+import OrdersUser from "./Admin/OrdersUser";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
@@ -28,7 +29,7 @@ export const useRoutes = (isAuthenticated, isAdmin) => {
             <ThemeContextProvider>
                 <Provider store={store}>
                     <Routes>
-                        <Route path="/admin" exact element={<AdminPage/>}/>
+                        <Route path="/admin/" exact element={<AdminPage children= {<OrdersUser/>}/>}/>
                     </Routes>
                 </Provider>
             </ThemeContextProvider>

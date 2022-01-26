@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react'
 import axios from 'axios'
-import OrderItem from "./OrderItem";
-import './Order.css'
-import {AuthContext} from "../Auth/AuthContext";
+import ListOfOrders from "./ListOfOrders";
+import '../Order/Order.css'
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import './Admin.css'
 
-export default function Order() {
-    const currentUser = useContext(AuthContext)
+export default function OrdersUser() {
+
     const [orders, setOrders] = useState([])
 
     const {isLightTheme, light, dark} = useContext(ThemeContext);
@@ -27,11 +27,9 @@ export default function Order() {
                     className={'header'}
                 >История заказов </h1>
                 {orders.slice(0).reverse().map((item) => {
-                        if (item.userId === currentUser.userId) {
                             return (
-                                <OrderItem order={item}/>
+                                <ListOfOrders order={item}/>
                             )
-                        }
                     }
                 )}
             </div>

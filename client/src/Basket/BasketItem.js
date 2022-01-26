@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 import './Basket.css'
-import {Button} from "@mui/material";
 
 import {useDispatch, useSelector} from "react-redux";
 import {addProduct, delProduct} from "../redux/basket/reducer";
