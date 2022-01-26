@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useCallback, useContext, useEffect, useState} from "react";
 import {Button} from "@mui/material";
 import {useModal} from "react-hooks-use-modal";
 import './BasketModal.css'
@@ -6,10 +6,12 @@ import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import Checkout from "../Checkout/Checkout";
 import axios from "axios";
 import {AuthContext} from "../Auth/AuthContext";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {delAllProducts} from "../redux/basket/reducer";
 
 function BasketModal({subtotal}) {
     const products = useSelector(state => state.basket.productsBasket);
+    const dispatch = useDispatch()
     const uniqProducts = [...new Set(products)];
     const totalPrice = products.reduce((acc, product) => acc += product.price, 0)
 
@@ -17,6 +19,7 @@ function BasketModal({subtotal}) {
         preventScroll: true,
         closeOnOverlayClick: false
     });
+
     const {isLightTheme, light, dark} = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;
 
@@ -29,7 +32,8 @@ function BasketModal({subtotal}) {
             date: '',
             name: '',
             email: '',
-            orderItems: uniqProducts,
+            orderItems: products,
+            uniq: uniqProducts,
             totalPrice: totalPrice,
         }
     )
@@ -39,6 +43,7 @@ function BasketModal({subtotal}) {
     const orderHandler = async () => {
         try {
             const response = await axios.post('/api/order', {...form})
+            //dispatch(delAllProducts(products))
         } catch (e) {
         }
     }
@@ -99,7 +104,6 @@ function BasketModal({subtotal}) {
                             name="email"
                             value={form.email}
                             onChange={changeHandler}/>
-
 
                         <div className={'basketModal__buttons'}>
                             <Button onClick={orderHandler}>Send form</Button>
