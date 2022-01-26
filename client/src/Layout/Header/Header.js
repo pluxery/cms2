@@ -81,10 +81,7 @@ function Header() {
                             className={'header__profile-data1'}/>
                     </NavLink>
 
-                    <p style={{
-                            color: `${theme.textheader}`,
-                            background: `${theme.bg}`
-                        }}
+                    <p style={{color: `${theme.textheader}`, background: `${theme.bg}`}}
                         className={'header__profile-data'}
                        onClick={logoutHandler}>
                         Выйти</p>
