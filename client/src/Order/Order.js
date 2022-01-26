@@ -3,11 +3,10 @@ import axios from 'axios'
 import OrderItem from "./OrderItem";
 import './Order.css'
 import {AuthContext} from "../Auth/AuthContext";
-
+import {useSelector} from "react-redux";
 
 
 export default function Order() {
-
     const currentUser = useContext(AuthContext)
     const [orders, setOrders] = useState([])
 

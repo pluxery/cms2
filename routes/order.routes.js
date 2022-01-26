@@ -1,9 +1,7 @@
 const express = require("express");
 const Order = require("../models/Order");
 const orderRouter = express.Router();
-const {check, validationResult, body} = require('express-validator')
-const {isEmpty} = require("validator");
-const urlencodedParser = express.urlencoded({extended: false});
+const {check, validationResult} = require('express-validator')
 
 
 orderRouter.get("/", async (req, res) => {
@@ -48,8 +46,6 @@ orderRouter.post('/', [
                     res.send(req.body)
                 }
             })
-
-
         } catch (e) {
             res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
 
@@ -59,7 +55,7 @@ orderRouter.post('/', [
 orderRouter.post("/user", async (req, res) => {
     const {userId} = req.body;
     try {
-        const orders = await Order.find({userId}).sort({_id: "-1"});
+        const orders = await Order.find({userId});
         res.status(200).send(orders);
     } catch (error) {
         res.status(400).json({
