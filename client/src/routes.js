@@ -19,6 +19,7 @@ import ThemeContextProvider from "./Layout/Theme/ThemeContext";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
+const apiCombo = '/api/combo';
 
 export const useRoutes = isAuthenticated => {
 
@@ -39,8 +40,6 @@ export const useRoutes = isAuthenticated => {
                                element={<Layout children={<Category category={categoryWater}/>}/>}/>
                         <Route path="/desserts" exact
                                element={<Layout children={<Category category={categoryDessert}/>}/>}/>
-                        <Route path="/combo" exact element={<Layout children={<Category category={categoryCombo}/>}/>}/>
-
 
                         <Route path="/beer" exact
                                element={<Layout children={<Products category={"beer"} url={apiDrinks}/>}/>}/>
@@ -57,7 +56,8 @@ export const useRoutes = isAuthenticated => {
                                element={<Layout children={<Products category={"donut"} url={apiDesserts}/>}/>}/>
                         <Route path="/desserts/cake" exact
                                element={<Layout children={<Products category={"cake"} url={apiDesserts}/>}/>}/>
-
+                        <Route path="/combo" exact
+                               element={<Layout children={<Products category={"combo"} url={apiCombo}/>}/>}/>
                     </Routes>
                 </Provider>
             </ThemeContextProvider>
