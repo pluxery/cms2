@@ -15,13 +15,13 @@ function BasketItem({product: item}) {
 
     const addToBasketHandler = (e) => {
         e.stopPropagation();
-        setCount(count+1)
+        setCount(count + 1)
         dispatch(addProduct(item));
     }
 
     const delToBasketHandler = (e) => {
         e.stopPropagation();
-        setCount(count-1)
+        setCount(count - 1)
         dispatch(delProduct(item.id));
     }
 
@@ -38,7 +38,6 @@ function BasketItem({product: item}) {
                 <Button className={"basketItem__add"} onClick={addToBasketHandler}>+</Button>
                 <p className={'text-weight'}>{products.filter((el) => el === item).length}</p>
                 <Button className={"basketItem__add"} onClick={delToBasketHandler}>-</Button>
-
             </div>
         </div>
 
