@@ -12,8 +12,6 @@ const basketSlice = createSlice({
         delProduct: (state, action) => {
             const index = state.productsBasket.findIndex((product) => product.id === action.payload);
             state.productsBasket.splice(index, 1);
-
-
         }
     }
 });

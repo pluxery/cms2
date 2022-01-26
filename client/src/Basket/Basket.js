@@ -1,9 +1,9 @@
 import React, {useContext} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import './Basket.css'
 import BasketItem from "./BasketItem";
-import BasketModal from "./BasketModal";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import Checkout from "../Checkout/Checkout";
 
 
 function Basket() {
@@ -30,10 +30,10 @@ function Basket() {
                 <h2 style={{color: `${theme.text1}`}}>{'Итого: ' + totalPrice + 'руб.'}</h2>
 
                 <div className={'basket__footer'}>
-                    <BasketModal/>
+                    {/*<BasketModal/>*/}
+                    <Checkout subtotal={totalPrice} />
                 </div>
             </div>
-
         </div>
     );
 }

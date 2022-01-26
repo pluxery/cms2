@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import './Basket.css'
 import {Button} from "@mui/material";
 import {useDispatch} from "react-redux";
-import {delProduct} from "../redux/busket/reducer";
+import {delProduct} from "../redux/basket/reducer";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 function Basket({product: item}) {
