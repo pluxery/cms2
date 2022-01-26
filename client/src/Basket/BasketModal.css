@@ -10,7 +10,7 @@
 }
 
 
-.basketModal__input{
+.basketModal__input-light{
     display: flex;
     margin: 20px;
     padding: 12px;
@@ -19,8 +19,15 @@
     outline: none;
     font-size: 20px;
 }
-.button_buy{
 
+.basketModal__input-dark{
+    display: flex;
+    margin: 20px;
+    padding: 12px;
+    border-radius: 20px;
+    border: #ee9836 2px solid;
+    outline: none;
+    font-size: 20px;
 }
 
 .basketModal__buttons{

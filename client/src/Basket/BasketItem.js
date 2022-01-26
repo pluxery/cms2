@@ -1,25 +1,49 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import './Basket.css'
 import {Button} from "@mui/material";
-import drinksIce from "../Data/drinksIce";
-import pizza from "../Data/Pizza";
 
-function Basket({product = pizza[0], count = 2}) {
+import {useDispatch, useSelector} from "react-redux";
+import {addProduct, delProduct} from "../redux/basket/reducer";
+
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
+function BasketItem({product: item}) {
+
+    const products = useSelector(state => state.basket.productsBasket);
+    const dispatch = useDispatch()
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
+    const [count, setCount] = useState(1);
+
+    const addToBasketHandler = (e) => {
+        e.stopPropagation();
+        setCount(count + 1)
+        dispatch(addProduct(item));
+    }
+
+    const delToBasketHandler = (e) => {
+        e.stopPropagation();
+        setCount(count - 1)
+        dispatch(delProduct(item.id));
+    }
+
     return (
-        <div className={'basketItem__row'}>
+        <div style={{color: `${theme.text1}`}}
+             className={'basketItem__row'}>
             <div className={'basketItem__first'}>
-                <img src={product.image} alt={'image not found'} className={'basket__img'}/>
-                <p className={'text-weight'}>{product.name}</p>
+                <img className={'basket__img'} src={item.image} alt={'image not found'}/>
+                <p className={'text-weight'}>{item.name}</p>
             </div>
 
             <div className={'basketItem__two'}>
-                <p className={'text-weight'}>{product.price + 'руб.'}</p>
-                <p className={'text-weight'}>{'кол-во: ' + count}</p>
-                <Button className={'basketItem__button-del'}>Удалить</Button>
+                <p className={'text-weight'}>{item.price + 'руб.'}</p>
+                <Button className={"basketItem__add"} onClick={addToBasketHandler}>+</Button>
+                <p className={'text-weight'}>{products.filter((el) => el === item).length}</p>
+                <Button className={"basketItem__add"} onClick={delToBasketHandler}>-</Button>
             </div>
         </div>
 
     );
 }
 
-export default Basket;
+export default BasketItem;

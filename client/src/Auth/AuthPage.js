@@ -1,11 +1,12 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useHttp} from '../hooks/http.hook'
 import {useMessage} from '../hooks/message.hook'
 import {AuthContext} from './AuthContext'
 import 'materialize-css'
 import {useNavigate} from "react-router-dom";
-import './style.css'
+import './Auth.css'
 import Loader from "../Loader/Loader";
+import {Button} from "@mui/material";
 
 
 export const AuthPage = () => {
@@ -27,14 +28,17 @@ export const AuthPage = () => {
     }, [])
 
     const changeHandler = event => {
-        setForm({ ...form, [event.target.name]: event.target.value })
+        setForm({...form, [event.target.name]: event.target.value})
     }
 
     const registerHandler = async () => {
         try {
             const data = await request('/api/auth/register', 'POST', {...form})
             message(data.message)
-        } catch (e) {}
+
+        } catch (e) {
+
+        }
     }
 
     const loginHandler = async () => {
@@ -42,67 +46,60 @@ export const AuthPage = () => {
             const data = await request('/api/auth/login', 'POST', {...form})
             auth.login(data.token, data.userId)
             navigate('/main')
-        } catch (e) {}
+        } catch (e) {
+        }
     }
-    if (loading){
+    if (loading) {
         return <Loader/>
     }
 
     return (
-        <div className="row">
-            <div className="centerAuth">
-                <div className="card blue lighten-3" style={{borderRadius: 30}}>
-                    <div className="card-content white-text">
-                        <span className="card-title center">Авторизация</span>
-                        <div>
+        <div className={'auth__content'}>
+            <div className={'auth'}>
+                <div className={'auth__body'}>
+                    <h2 className={'auth__tittle'}>Авторизация</h2>
+                    <div className={'auth__inputs'}>
+                        <input
+                            placeholder="Введите email"
+                            id="email"
+                            type="text"
+                            name="email"
+                            value={form.email}
+                            onChange={changeHandler}
+                        />
+                        <label htmlFor="email"/>
 
-                            <div className="input-field">
-                                <input
-                                    placeholder="Введите email"
-                                    id="email"
-                                    type="text"
-                                    name="email"
-                                    className="yellow-input"
-                                    value={form.email}
-                                    onChange={changeHandler}
-                                />
-                                <label htmlFor="email">Email</label>
-                            </div>
-
-                            <div className="input-field">
-                                <input
-                                    placeholder="Введите пароль"
-                                    id="password"
-                                    type="password"
-                                    name="password"
-                                    className="yellow-input"
-                                    value={form.password}
-                                    onChange={changeHandler}
-                                />
-                                <label htmlFor="email">Пароль</label>
-                            </div>
-
-                        </div>
+                        <input
+                            placeholder="Введите пароль"
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={form.password}
+                            onChange={changeHandler}
+                        />
+                        <label htmlFor="email"/>
                     </div>
-                    <div className="card-action center" style={{borderRadius: 30}}>
-                        <button
+
+                    <div className={'auth__footer'}>
+                        <Button
                             className="waves-effect waves-light btn blue"
                             style={{marginRight: 10}}
                             disabled={loading}
-                            onClick={loginHandler}
-                        >
+                            onClick={loginHandler}>
                             Войти
-                        </button>
-                        <button
+                        </Button>
+
+                        <Button
                             className="waves-effect waves-light btn blue"
                             onClick={registerHandler}
-                            disabled={loading}
-                        >
+                            disabled={loading}>
                             Регистрация
-                        </button>
+                        </Button>
                     </div>
+
                 </div>
             </div>
         </div>
+
     )
 }

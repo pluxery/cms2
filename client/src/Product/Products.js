@@ -1,16 +1,35 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import '../Category/Category.css'
-import CategoryBox from "../Category/CategoryBox";
-import {NavLink} from "react-router-dom";
 import ProductBox from "./ProductBox";
+import axios from "axios";
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
-function Products({products}) {
+function Products({category, url}) {
+    const [products, setProduct] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios(url);
+            setProduct(result.data);
+        };
+        fetchData();
+    }, []);
+
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
+
     return (
-        <div className={'category'}>
-
-            <div className={'category-row'}>
-                <ProductBox product={products[0]}/>
-                <ProductBox product={products[1]}/>
+        <div style={{background: `${theme.cbg}`}}
+            className={'category'}>
+            <div
+                className={'category-row'}>
+                {products.map((item) => {
+                    if (item.category === category) {
+                        return (
+                            <ProductBox product={item}/>
+                        )
+                    }
+                })}
             </div>
         </div>
     );

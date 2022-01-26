@@ -1,51 +1,62 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './Main.css'
-import Tab from "./Tab";
 import ProductBox from "../Product/ProductBox";
-import {NavLink} from "react-router-dom";
+import axios from "axios";
+import SearchIcon from "@mui/icons-material/Search";
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
-function Main({pizza}) {
+
+function Main() {
+    const [pizza, setPizza] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await axios(
+                '/api/pizza',
+            );
+            setPizza(result.data);
+        };
+        fetchData();
+    }, []);
+
+    const [value, setValue] = useState('')
+
+    const filteredPizza = pizza.filter(pizzas =>{
+        return pizzas.name.toLowerCase().includes(value.toLowerCase())
+    })
+
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
+
     return (
-
         <div className={'main'}>
-            <div>
                 <div className={'main-img'}>
                     <img className={'main__poster'}
                          src={'https://cdn.papajohns.ru//images/banners/bfb447d5ba9036a2b5eb0e1941fcd152.webp'}
                          alt={'image not found'}/>
                 </div>
 
-                <div className={'main__pizza-tabs'}>
-                    <NavLink to={'/popular'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Хит'} pizza={pizza}/>
-                    </NavLink>
-                    <NavLink to={'/acute'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Острая'} pizza={pizza} />
-                    </NavLink>
-                    <NavLink to={'/new'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Новинка'} pizza={pizza}/>
-                    </NavLink>
-                    <NavLink to={'/meet'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Мясная'} pizza={pizza}/>
-                    </NavLink>
-                    <NavLink to={'/vegan'} className={'sidebar__text-decoration'}>
-                        <Tab name={'Вегатаринская'} pizza={pizza}/>
-                    </NavLink>
+            <div className="search">
+                <div
+                    style={{background: `${theme.element}`}}
+                    className="search__input">
+                    <SearchIcon className="search__icon"/>
+                    <input
+                        style={{
+                            background: `${theme.element}`,
+                            color:`${theme.text1}`
+                        }}
+                        placeholder="Поиск"
+                        type="text"
+                        onChange={(event) => setValue(event.target.value)}
+                    />
                 </div>
             </div>
+
             <div className={'main__pizza'}>
-                <ProductBox product={pizza[0]}/>
-                <ProductBox product={pizza[1]}/>
-                <ProductBox product={pizza[2]}/>
-                <ProductBox product={pizza[3]}/>
-                <ProductBox product={pizza[0]}/>
-                <ProductBox product={pizza[3]}/>
-                <ProductBox product={pizza[2]}/>
-                <ProductBox product={pizza[1]}/>
-                <ProductBox product={pizza[0]}/>
-                <ProductBox product={pizza[1]}/>
-                <ProductBox product={pizza[2]}/>
-                <ProductBox product={pizza[0]}/>
+                {filteredPizza.map(item => (
+                    <ProductBox product={item}/>
+                ))}
             </div>
 
         </div>

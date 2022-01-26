@@ -5,6 +5,7 @@ import {AuthContext} from './Auth/AuthContext'
 import {useRoutes} from "./routes";
 import {useAuth} from "./hooks/auth.hook";
 
+
 function App() {
     const {token, login, logout, userId} = useAuth()
     const isAuthenticated = !!token
