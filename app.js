@@ -22,7 +22,7 @@ const mongoUrl2 = "mongodb+srv://bobiklovik7:1234qwer@cluster0.iqtby.mongodb.net
 
 async function start() {
     try {
-        await mongoose.connect(mongoUrl1), {
+        await mongoose.connect(mongoUrl2), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
