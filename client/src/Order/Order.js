@@ -1,18 +1,37 @@
+import React, {useContext, useEffect, useState} from 'react'
+import axios from 'axios'
+import OrderItem from "./OrderItem";
+import './Order.css'
+import {AuthContext} from "../Auth/AuthContext";
 
-import React from 'react'
-import {useSelector} from "react-redux";
 
 
+export default function Order() {
 
+    const currentUser = useContext(AuthContext)
+    const [orders, setOrders] = useState([])
 
-export default function Order(){
-    const products = useSelector(state => state.basket.productsBasket);
-    const totalPrice = products.reduce((acc, product) => acc += product.price, 0)
-    return(
-        <>
-            <h1>Order</h1>
-            total price: {totalPrice}
-            products:{products}
-        </>
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await axios('/api/order',);
+            setOrders(response.data);
+        };
+        fetchData();
+    }, []);
+
+    return (
+        <div className={'order'}>
+            <div className={'order__body'}>
+                <h1>История заказов </h1>
+                {orders.slice(0).reverse().map((item) => {
+                        if (item.userId === currentUser.userId) {
+                            return (
+                                <OrderItem order={item}/>
+                            )
+                        }
+                    }
+                )}
+            </div>
+        </div>
     )
 }

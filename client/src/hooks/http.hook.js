@@ -26,7 +26,7 @@ export const useHttp = () => {
             if (!response.ok) {
                 throw new Error(data.message || 'Что-то пошло не так')
             }
-            sleep(3000)
+            sleep(2000)
             setLoading(false)
 
             return data

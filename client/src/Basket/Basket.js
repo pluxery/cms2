@@ -8,6 +8,7 @@ import BasketItem from "./BasketItem";
 import {Button} from "@mui/material";
 import {delAllProducts} from "../redux/basket/reducer";
 import Checkout from "../Checkout/Checkout";
+import {NavLink} from "react-router-dom";
 
 
 function Basket() {
@@ -45,6 +46,9 @@ function Basket() {
 
                 <div className={'basket__footer'}>
                     <BasketModal subtotal={totalPrice} />
+                    <NavLink to={'/order'}>
+                        <Button>my order</Button>
+                    </NavLink>
                     <Button onClick={delAllToBasketHandler} className={'basketItem__button-del'}>Удалить все</Button>
 
                 </div>

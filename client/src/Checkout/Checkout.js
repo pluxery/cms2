@@ -1,6 +1,7 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import {Button} from "@mui/material";
+import {NavLink} from "react-router-dom";
 
 export default function Checkout({subtotal}) {
     function tokenHander(token) {
@@ -14,11 +15,12 @@ export default function Checkout({subtotal}) {
             locale="ru"
             description="Pizza FEFU"
             zipCode={false}
-            token ={tokenHander}
+            token={tokenHander}
             stripeKey="pk_test_51KLxZ6IjkCZLYMwcNH8m3o5NyOdOzwie784mshVxfCEy8ICR1Mt5Jmx5QW2loUB2yJjwZOWjR6xvvwX9AdrinsPw00KcxKMLB0"
             currency={"rub"}
         >
             <Button className="basket__button-buy">Оплатить</Button>
+
         </StripeCheckout>
     );
 }
