@@ -16,6 +16,7 @@ import {store} from "./redux";
 import {Provider} from "react-redux";
 import ThemeContextProvider from "./Layout/Theme/ThemeContext";
 import AdminPage from "./Admin/AdminPage";
+import Order from "./Order/Order";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
@@ -45,6 +46,7 @@ export const useRoutes = (isAuthenticated, isAdmin) => {
                         <Route path="/quality" exact element={<Layout children={<Quality/>}/>}/>
                         <Route path="/help" exact element={<Layout children={<Help/>}/>}/>
                         <Route path="/basket" exact element={<Layout children={<Basket/>}/>}/>
+                        <Route path="/order" exact element={<Layout children={<Order/>}/>}/>
                         <Route path="/main" exact element={<Layout children={<Main/>}/>}/>
 
                         <Route path="/drinks" exact

@@ -1,0 +1,11 @@
+[
+  {
+    "phone": "+79823456789",
+    "date": "old",
+    "userId": "61ede3f34b0a500a94ea8cf2",
+    "orderItems" : ["pizza", "tea"],
+    "address" : "Корпус 7.2",
+    "name": "Sema",
+    "email": "email example",
+  }
+]
