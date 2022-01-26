@@ -44,8 +44,11 @@ export const AuthPage = () => {
     const loginHandler = async () => {
         try {
             const data = await request('/api/auth/login', 'POST', {...form})
-            auth.login(data.token, data.userId)
+            auth.login(data.token, data.userId, data.admin)
             navigate('/main')
+            if(data.admin === true){
+                navigate('/admin')
+            }
         } catch (e) {
         }
     }
