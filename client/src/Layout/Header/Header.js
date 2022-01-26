@@ -5,9 +5,6 @@ import {NavLink, useNavigate} from "react-router-dom";
 import React, {useContext} from "react";
 import {AuthContext} from "../../Auth/AuthContext";
 import { ThemeContext } from "../Theme/ThemeContext";
-
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMoon} from "@fortawesome/free-solid-svg-icons";
 import {Button} from "@mui/material";
 
 function Header() {
