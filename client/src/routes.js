@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Layout from "./Layout/Layout";
 import MyMap from "./Information/MyMap";
@@ -10,18 +10,29 @@ import Main from "../../client/src/Main/Main";
 import Category from "../../client/src/Category/Category";
 import categoryWater from "../../client/src/Data/categoryWater";
 import categoryDessert from "../../client/src/Data/categoryDessert";
-import categoryCombo from "../../client/src/Data/categoryCombo";
 import Products from "../../client/src/Product/Products";
 import {AuthPage} from "./Auth/AuthPage";
 import {store} from "./redux";
 import {Provider} from "react-redux";
 import ThemeContextProvider from "./Layout/Theme/ThemeContext";
+import AdminPage from "./Admin/AdminPage";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
 const apiCombo = '/api/combo';
 
-export const useRoutes = isAuthenticated => {
+export const useRoutes = (isAuthenticated, isAdmin) => {
+    if (isAdmin) {
+        return (
+            <ThemeContextProvider>
+                <Provider store={store}>
+                    <Routes>
+                        <Route path="/admin" exact element={<AdminPage/>}/>
+                    </Routes>
+                </Provider>
+            </ThemeContextProvider>
+        )
+    }
 
     if (isAuthenticated) {
         return (
@@ -64,8 +75,8 @@ export const useRoutes = isAuthenticated => {
         )
     }
     return (
-            <Routes>
-                <Route path="/" exact element={<AuthPage/>}/>
-            </Routes>
+        <Routes>
+            <Route path="/" exact element={<AuthPage/>}/>
+        </Routes>
     )
 }
