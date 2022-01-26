@@ -4,8 +4,9 @@ import {useModal} from "react-hooks-use-modal";
 import './BasketModal.css'
 import RadioBox from "./RadioBox";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import Checkout from "../Checkout/Checkout";
 
-function BasketModal() {
+function BasketModal( {subtotal}) {
     const [Modal, open, close] = useModal('root', {
         preventScroll: true,
         closeOnOverlayClick: false
@@ -61,10 +62,12 @@ function BasketModal() {
                             className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}
                             placeholder={"Email (необязательно): "}/>
 
-                        <RadioBox/>
+                        {/*<RadioBox/>*/}
 
                         <div className={'basketModal__buttons'}>
-                            <Button className={'basket__button-buy'}>Оформить</Button>
+                            <div onClick={close}>
+                            <Checkout subtotal={subtotal} />
+                            </div>
                             <Button className={'basketItem__button-del'} onClick={close}>Отмена</Button>
                         </div>
                     </div>
