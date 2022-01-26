@@ -98,7 +98,6 @@
     justify-content: end;
 }
 
-
 .categoryBox__img-size{
-    border-radius: 100px;
+    border-radius: 100%;
 }

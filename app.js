@@ -13,6 +13,7 @@ app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/pizza', require("./routes/pizza.routes"))
 app.use('/api/drink', require("./routes/drink.routes"))
 app.use('/api/dessert', require('./routes/dessert.routes'))
+app.use('/api/combo', require('./routes/combo.routes'))
 app.use('/api/order', require('./routes/order.routes'))
 
 const PORT = 5000

@@ -24,6 +24,11 @@ function Products({category, url}) {
             <div
                 className={'category-row'}>
                 {products.map((item) => {
+                    if(category === 'combo'){
+                        return(
+                            <ProductBox product={item}/>
+                        )
+                    }
                     if (item.category === category) {
                         return (
                             <ProductBox product={item}/>
