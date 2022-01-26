@@ -101,8 +101,6 @@ function BasketModal({subtotal}) {
                             onChange={changeHandler}/>
 
 
-                        {/*<RadioBox/>*/}
-
                         <div className={'basketModal__buttons'}>
                             <Button onClick={orderHandler}>Send form</Button>
                             <div onClick={close}>
