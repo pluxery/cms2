@@ -62,8 +62,6 @@ function BasketModal( {subtotal}) {
                             className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}
                             placeholder={"Email (необязательно): "}/>
 
-                        {/*<RadioBox/>*/}
-
                         <div className={'basketModal__buttons'}>
                             <div onClick={close}>
                             <Checkout subtotal={subtotal} />
