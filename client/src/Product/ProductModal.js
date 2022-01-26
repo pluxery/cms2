@@ -3,26 +3,24 @@ import {useDispatch} from "react-redux";
 import './Product.css'
 import {Button} from "@mui/material";
 import {useModal} from "react-hooks-use-modal";
-import {addProduct, delProduct} from "../redux/basket/reducer";
+import {addProduct} from "../redux/basket/reducer";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 function ProductModal({product}) {
+
+    const dispatch = useDispatch()
+    const {isLightTheme, light, dark} = useContext(ThemeContext);
+    const theme = isLightTheme ? light : dark;
+
+    const addToBasketHandler = (e) => {
+        e.stopPropagation()
+        dispatch(addProduct(product))
+    }
+
     const [Modal, open, close] = useModal('root', {
         preventScroll: true,
         closeOnOverlayClick: false
     });
-    const [count, setCount] = useState(1);
-    const dispatch = useDispatch()
-
-    const addToBasketHandler = (e) => {
-        e.stopPropagation();
-        for (let i = 0; i < count; i++) {
-            dispatch(addProduct(product));
-        }
-    }
-
-    const {isLightTheme, light, dark} = useContext(ThemeContext);
-    const theme = isLightTheme ? light : dark;
 
     return (
         <>
@@ -43,16 +41,11 @@ function ProductModal({product}) {
                             <p className={'product__category-text'}>{product.name}</p>
                             <p className={'product__price-text'}>{product.price + " рублей"}</p>
                             <p className={'product__compound-text'}>{"Состав: " + product.compound}</p>
-                            <div className={'product__count-button'}>
-                                <Button
-                                    className={"basketItem__add"} onClick={() => setCount(count + 1)}>+</Button>
-                                <p className={'text-weight'}>{count > 0 ? count : setCount(1)}</p>
-                                <Button className={"basketItem__add"} onClick={() => setCount(count - 1)}>-</Button>
-                            </div>
+
                             <Button
                                 onClick={addToBasketHandler}
                                 className={theme === dark ? 'product__button-add-dark' : 'product__button-add-light'}>
-                                Добавить
+                                <p onClick={close}>Добавить</p>
                             </Button>
                         </div>
                     </div>
