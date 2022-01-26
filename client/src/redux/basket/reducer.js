@@ -16,7 +16,7 @@ const basketSlice = createSlice({
         delAllProducts: (state, action) => {
             state.productsBasket.splice(0, action.payload.length)
         }
-    }x``
+    }
 });
 
 export const {addProduct, delProduct, delAllProducts} = basketSlice.actions;

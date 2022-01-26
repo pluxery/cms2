@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import './Basket.css'
 
 import BasketModal from "./BasketModal";
@@ -44,9 +44,9 @@ function Basket() {
                 <h3 style={{color: `${theme.text1}`}}>{'Товаров в корзине: ' + products.length}</h3>
 
                 <div className={'basket__footer'}>
-                    {/*<BasketModal/>*/}
-                    <Checkout subtotal={totalPrice} />
+                    <BasketModal subtotal={totalPrice} />
                     <Button onClick={delAllToBasketHandler} className={'basketItem__button-del'}>Удалить все</Button>
+
                 </div>
             </div>
         </div>
