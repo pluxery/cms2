@@ -1,15 +1,18 @@
-import React, {useContext, useState} from "react";
 import {Button} from "@mui/material";
+import {useDispatch, useSelector} from "react-redux";
 import {useModal} from "react-hooks-use-modal";
-import './BasketModal.css'
+import axios from "axios";
+import React, { useContext, useState} from "react";
+
+import {AuthContext} from "../Auth/AuthContext";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import Checkout from "../Checkout/Checkout";
-import axios from "axios";
-import {AuthContext} from "../Auth/AuthContext";
-import {useSelector} from "react-redux";
+
+import './BasketModal.css'
 
 function BasketModal({subtotal}) {
     const products = useSelector(state => state.basket.productsBasket);
+    const dispatch = useDispatch()
     const uniqProducts = [...new Set(products)];
     const totalPrice = products.reduce((acc, product) => acc += product.price, 0)
 
@@ -17,6 +20,7 @@ function BasketModal({subtotal}) {
         preventScroll: true,
         closeOnOverlayClick: false
     });
+
     const {isLightTheme, light, dark} = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;
 
@@ -26,10 +30,10 @@ function BasketModal({subtotal}) {
             address: '',
             userId: currentUser.userId,
             phone: '',
-            date: '',
             name: '',
             email: '',
-            orderItems: uniqProducts,
+            orderItems: products,
+            uniq: uniqProducts,
             totalPrice: totalPrice,
         }
     )
@@ -86,25 +90,17 @@ function BasketModal({subtotal}) {
                         <input
                             style={{background: `${theme.element}`, color: `${theme.text1}`}}
                             className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}
-                            placeholder={"Время доставки: "}
-                            type="text"
-                            name="phone"
-                            value={form.phone}
-                            onChange={changeHandler}/>
-                        <input
-                            style={{background: `${theme.element}`, color: `${theme.text1}`}}
-                            className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}
                             placeholder={"Email: "}
                             type="text"
                             name="email"
                             value={form.email}
                             onChange={changeHandler}/>
 
-
                         <div className={'basketModal__buttons'}>
-                            <Button onClick={orderHandler}>Send form</Button>
-                            <div onClick={close}>
+                            <div onClick={orderHandler}>
+                                <div onClick={close}>
                                 <Checkout subtotal={subtotal}/>
+                                </div>
                             </div>
                             <Button className={'basketItem__button-del'} onClick={close}>Отмена</Button>
                         </div>

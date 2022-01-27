@@ -1,13 +1,14 @@
+import 'materialize-css'
+import {Button} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 import React, {useContext, useEffect, useState} from 'react'
+
+import {AuthContext} from './AuthContext'
+import Loader from "../Loader/Loader";
+
+import './Auth.css'
 import {useHttp} from '../hooks/http.hook'
 import {useMessage} from '../hooks/message.hook'
-import {AuthContext} from './AuthContext'
-import 'materialize-css'
-import {useNavigate} from "react-router-dom";
-import './Auth.css'
-import Loader from "../Loader/Loader";
-import {Button} from "@mui/material";
-
 
 export const AuthPage = () => {
     const navigate = useNavigate()

@@ -20,8 +20,9 @@ const ThemeContextProvider = ({children}) => {
         text2: "#ee9836",
         inf: "#2b3945",
         ctext:"#ee9836",
-        cbg:"hsl(207, 26%, 17%)",
+        cbg:"#202C37FF",
         container:"rgb(141,111,74)",
+        th: "#ee9836"
 
     });
     const [light] = useState({
@@ -37,6 +38,7 @@ const ThemeContextProvider = ({children}) => {
         ctext:"#111517",
         cbg:"#f2fafe",
         container:"rgb(215, 242, 255)",
+        th: "#d8d8d8"
     });
 
     let toggleTheme = () => {

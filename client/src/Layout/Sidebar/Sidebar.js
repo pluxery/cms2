@@ -1,15 +1,15 @@
+import {NavLink} from "react-router-dom";
+import DiningOutlinedIcon from '@mui/icons-material/DiningOutlined';
+import IcecreamOutlinedIcon from '@mui/icons-material/IcecreamOutlined';
+import LiquorOutlinedIcon from '@mui/icons-material/LiquorOutlined';
+import LocalCafeOutlinedIcon from '@mui/icons-material/LocalCafeOutlined';
+import LocalPizzaOutlinedIcon from '@mui/icons-material/LocalPizzaOutlined';
 import React, {useContext} from "react";
-import "./Sidebar.css"
+
+import {ThemeContext} from "../Theme/ThemeContext";
 import SidebarItem from "./SidebarItem";
 
-import LocalCafeOutlinedIcon from '@mui/icons-material/LocalCafeOutlined';
-import IcecreamOutlinedIcon from '@mui/icons-material/IcecreamOutlined';
-import LocalPizzaOutlinedIcon from '@mui/icons-material/LocalPizzaOutlined';
-import DiningOutlinedIcon from '@mui/icons-material/DiningOutlined';
-import LiquorOutlinedIcon from '@mui/icons-material/LiquorOutlined';
-import {NavLink} from "react-router-dom";
-import {ThemeContext} from "../Theme/ThemeContext";
-
+import "./Sidebar.css"
 
 function Sidebar() {
     const {isLightTheme, light, dark} = useContext(ThemeContext);

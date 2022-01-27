@@ -1,11 +1,13 @@
-import './Header.css';
-import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
-import logo from './logo.png';
-import {NavLink, useNavigate} from "react-router-dom";
-import React, {useContext} from "react";
-import {AuthContext} from "../../Auth/AuthContext";
-import { ThemeContext } from "../Theme/ThemeContext";
 import {Button} from "@mui/material";
+import {NavLink, useNavigate} from "react-router-dom";
+import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
+import React, {useContext} from "react";
+
+import { ThemeContext } from "../Theme/ThemeContext";
+import {AuthContext} from "../../Auth/AuthContext";
+
+import './Header.css';
+import logo from './logo.png';
 
 function Header() {
     const navigate = useNavigate()
@@ -70,6 +72,15 @@ function Header() {
 
                 <div
                     className={'header__profile'}>
+
+                    <NavLink to={'/order'} className={'header__profile-data-order'}>
+                        <p style={{
+                            color: `${theme.textheader}`,
+                            background: `${theme.bg}`}}>
+                           Заказы </p>
+                    </NavLink>
+
+
                     <NavLink
                         to={'/basket'}
                         className={'sidebar__text-decoration'}>
@@ -81,10 +92,7 @@ function Header() {
                             className={'header__profile-data1'}/>
                     </NavLink>
 
-                    <p style={{
-                            color: `${theme.textheader}`,
-                            background: `${theme.bg}`
-                        }}
+                    <p style={{color: `${theme.textheader}`, background: `${theme.bg}`}}
                         className={'header__profile-data'}
                        onClick={logoutHandler}>
                         Выйти</p>

@@ -1,42 +1,14 @@
-import React, {useContext} from 'react';
-import {Button} from "@mui/material";
-import {useNavigate} from "react-router-dom";
-import {AuthContext} from "../Auth/AuthContext";
-import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import React from 'react';
 
-function AdminPage() {
+import AdminHeader from "./AdminHeader";
 
-    const navigate = useNavigate()
-    const auth = useContext(AuthContext)
+import "./Admin.css"
 
-    const logoutHandler = event => {
-        event.preventDefault()
-        auth.logout()
-        navigate('/')
-    }
-
-    const {isLightTheme, light, dark, toggleTheme} = useContext(ThemeContext);
-    const theme = isLightTheme ? light : dark;
-
+function AdminPage({children}) {
     return (
         <div>
-            <h2>
-                This is Admin Page
-            </h2>
-
-            <p style={{
-                color: `${theme.textheader}`,
-                background: `${theme.bg}`
-            }}
-               className={'header__profile-data'}
-               onClick={logoutHandler}>
-                Выйти</p>
-
-            <Button onClick={() => toggleTheme()}>
-                {theme === dark ?  '🌙'  : '☀️'}
-            </Button>
-
-
+            <AdminHeader/>
+            {children}
         </div>
     );
 }

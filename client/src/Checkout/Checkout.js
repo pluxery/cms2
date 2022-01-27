@@ -1,11 +1,12 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import {Button} from "@mui/material";
-import {NavLink} from "react-router-dom";
 
 export default function Checkout({subtotal}) {
+
     function tokenHander(token) {
         console.log(token);
+        window.location.href = "/basket";
     }
 
     return (

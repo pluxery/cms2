@@ -1,7 +1,9 @@
 import React, {useContext} from "react";
+
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
 import "./Map.css";
 import logo from "../Layout/Header/logo.png";
-import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
 function Modal({setOpenModal}) {
     const {isLightTheme, light, dark} = useContext(ThemeContext);

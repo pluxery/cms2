@@ -1,10 +1,12 @@
-import React, {useContext} from "react";
-import img1 from './Image/img1.png';
-import "./Information.css"
-import InstagramIcon from '@mui/icons-material/Instagram';
 import {Icon24LogoVk} from '@vkontakte/icons';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import React, {useContext} from "react";
 import TwitterIcon from '@mui/icons-material/Twitter';
+
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
+import "./Information.css"
+import img1 from './Image/img1.png';
 
 function Contacts() {
 

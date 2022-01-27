@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 import './Basket.css'
-import {Button} from "@mui/material";
 
 import {useDispatch, useSelector} from "react-redux";
 import {addProduct, delProduct} from "../redux/basket/reducer";
@@ -13,12 +12,14 @@ function BasketItem({product: item}) {
     const dispatch = useDispatch()
     const {isLightTheme, light, dark} = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;
-    const [count, setCount] = useState(1);
+
+    const [count, setCount] = useState(products.filter((el) => el === item).length);
 
     const addToBasketHandler = (e) => {
         e.stopPropagation();
         setCount(count + 1)
         dispatch(addProduct(item));
+
     }
 
     const delToBasketHandler = (e) => {
@@ -37,9 +38,7 @@ function BasketItem({product: item}) {
 
             <div className={'basketItem__two'}>
                 <p className={'text-weight'}>{item.price + 'руб.'}</p>
-                <Button className={"basketItem__add"} onClick={addToBasketHandler}>+</Button>
-                <p className={'text-weight'}>{products.filter((el) => el === item).length}</p>
-                <Button className={"basketItem__add"} onClick={delToBasketHandler}>-</Button>
+                <p className={'text-weight'}>{'кол-во: ' + products.filter((el) => el === item).length}</p>
             </div>
         </div>
 

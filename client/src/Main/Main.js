@@ -1,10 +1,11 @@
-import React, {useContext, useEffect, useState} from "react";
-import './Main.css'
-import ProductBox from "../Product/ProductBox";
 import axios from "axios";
+import React, {useContext, useEffect, useState} from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import ProductBox from "../Product/ProductBox";
+
+import './Main.css'
 
 function Main() {
     const [pizza, setPizza] = useState([]);
@@ -17,7 +18,7 @@ function Main() {
             setPizza(result.data);
         };
         fetchData();
-    }, []);
+    }, [setPizza]);
 
     const [value, setValue] = useState('')
 

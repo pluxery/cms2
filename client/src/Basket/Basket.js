@@ -1,15 +1,13 @@
-import React, {useContext} from "react";
+import {Button} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import './Basket.css'
+import React, {useContext} from "react";
 
-import BasketModal from "./BasketModal";
+import {delAllProducts} from "../redux/basket/reducer";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import BasketItem from "./BasketItem";
-import {Button} from "@mui/material";
-import {delAllProducts} from "../redux/basket/reducer";
-import Checkout from "../Checkout/Checkout";
-import {NavLink} from "react-router-dom";
+import BasketModal from "./BasketModal";
 
+import './Basket.css'
 
 function Basket() {
 
@@ -45,12 +43,13 @@ function Basket() {
                 <h3 style={{color: `${theme.text1}`}}>{'Товаров в корзине: ' + products.length}</h3>
 
                 <div className={'basket__footer'}>
-                    <BasketModal subtotal={totalPrice} />
-                    <NavLink to={'/order'}>
-                        <Button>my order</Button>
-                    </NavLink>
-                    <Button onClick={delAllToBasketHandler} className={'basketItem__button-del'}>Удалить все</Button>
-
+                    {products.length > 0 ?
+                        <>
+                        <BasketModal subtotal={totalPrice} />
+                        <Button onClick={delAllToBasketHandler} className={'basketItem__button-del'}>Удалить все</Button>
+                        </>
+                         :
+                        <></>}
                 </div>
             </div>
         </div>

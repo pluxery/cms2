@@ -1,20 +1,29 @@
-import React, {useContext, useState} from "react";
-import {useDispatch} from "react-redux";
-import './Product.css'
 import {Button} from "@mui/material";
+import {useDispatch} from "react-redux";
 import {useModal} from "react-hooks-use-modal";
-import {addProduct} from "../redux/basket/reducer";
+import React, {useContext, useState} from "react";
+
+import {addProduct, delProduct} from "../redux/basket/reducer";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
+import './Product.css'
 
 function ProductModal({product}) {
 
     const dispatch = useDispatch()
     const {isLightTheme, light, dark} = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;
+    const [count, setCount] = useState(1);
 
     const addToBasketHandler = (e) => {
         e.stopPropagation()
-        dispatch(addProduct(product))
+        for (let i = 0; i < count; i++) {
+            dispatch(addProduct(product))
+        }
+    }
+    const delToBasketHandler = (e) => {
+        e.stopPropagation()
+        dispatch(delProduct(product.id))
     }
 
     const [Modal, open, close] = useModal('root', {
@@ -41,6 +50,13 @@ function ProductModal({product}) {
                             <p className={'product__category-text'}>{product.name}</p>
                             <p className={'product__price-text'}>{product.price + " рублей"}</p>
                             <p className={'product__compound-text'}>{"Состав: " + product.compound}</p>
+
+                            <div className={'product__count-button'}>
+                                <Button className={"basketItem__add"} onClick={() => setCount(count + 1)}>+</Button>
+                                <p className={'text-weight'}>{count > 0 ? count : setCount(1)}</p>
+                                <Button className={"basketItem__add"} onClick={() => setCount(count - 1)}>-</Button>
+                            </div>
+
 
                             <Button
                                 onClick={addToBasketHandler}

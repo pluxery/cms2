@@ -1,7 +1,9 @@
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
-import "./Map.css"
-import Modal from "./Modal";
 import React, {useState} from "react";
+
+import Modal from "./Modal";
+
+import "./Map.css"
 
 function MyMap() {
     const [modalOpen, setModalOpen] = useState(false);

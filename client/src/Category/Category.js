@@ -1,8 +1,9 @@
 import React, {useContext} from "react";
-import './Category.css'
-import CategoryBox from "./CategoryBox";
-import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import CategoryBox from "./CategoryBox";
+
+import './Category.css'
 
 function Category({category}) {
 
