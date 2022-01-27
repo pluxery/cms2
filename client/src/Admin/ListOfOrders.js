@@ -1,10 +1,12 @@
-import React, {useContext, useEffect, useState} from 'react';
-import '../Order/Order.css'
-import {useSelector} from "react-redux";
-import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import {Button} from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import {useSelector} from "react-redux";
 import axios from "axios";
+import DeleteIcon from '@mui/icons-material/Delete';
+import React, {useContext, useEffect, useState} from 'react';
+
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
+import '../Order/Order.css'
 
 function OrderItem({order}) {
     const products = useSelector(state => state.basket.productsBasket);

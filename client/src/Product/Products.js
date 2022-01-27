@@ -1,8 +1,10 @@
-import React, {useContext, useEffect, useState} from "react";
-import '../Category/Category.css'
-import ProductBox from "./ProductBox";
 import axios from "axios";
+import React, {useContext, useEffect, useState} from "react";
+
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import ProductBox from "./ProductBox";
+
+import '../Category/Category.css'
 
 function Products({category, url}) {
     const [products, setProduct] = useState([]);

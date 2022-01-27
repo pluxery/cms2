@@ -1,30 +1,31 @@
-import React from 'react'
+import {Provider} from "react-redux";
 import {Route, Routes} from 'react-router-dom'
-import Layout from "./Layout/Layout";
-import MyMap from "./Information/MyMap";
-import Contacts from "./Information/Contacts";
-import Quality from "./Information/Quality";
-import Help from "./Information/Help";
-import Basket from "../../client/src/Basket/Basket";
-import Main from "../../client/src/Main/Main";
-import Category from "../../client/src/Category/Category";
-import categoryWater from "../../client/src/Data/categoryWater";
-import categoryDessert from "../../client/src/Data/categoryDessert";
-import Products from "../../client/src/Product/Products";
+import React from 'react'
+
 import {AuthPage} from "./Auth/AuthPage";
 import {store} from "./redux";
-import {Provider} from "react-redux";
-import ThemeContextProvider from "./Layout/Theme/ThemeContext";
 import AdminPage from "./Admin/AdminPage";
+import Basket from "../../client/src/Basket/Basket";
+import Category from "../../client/src/Category/Category";
+import categoryDessert from "../../client/src/Data/categoryDessert";
+import categoryWater from "../../client/src/Data/categoryWater";
+import Contacts from "./Information/Contacts";
+import EditPizza from "./Admin/EditPizza";
+import Help from "./Information/Help";
+import Layout from "./Layout/Layout";
+import Main from "../../client/src/Main/Main";
+import MyMap from "./Information/MyMap";
 import Order from "./Order/Order";
 import Orders from "./Admin/Orders";
 import Pizza from "./Admin/Pizza";
-import EditPizza from "./Admin/EditPizza";
+import Products from "../../client/src/Product/Products";
+import Quality from "./Information/Quality";
+import ThemeContextProvider from "./Layout/Theme/ThemeContext";
+import AddPizza from "./Admin/AddPizza";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
 const apiCombo = '/api/combo';
-
 
 export const useRoutes = (isAuthenticated, isAdmin) => {
     if (isAdmin) {
@@ -35,6 +36,7 @@ export const useRoutes = (isAuthenticated, isAdmin) => {
                         <Route path="/admin" exact element={<AdminPage children= {<Orders/>}/>}/>
                         <Route path="/admin/pizza" exact element={<AdminPage children= {<Pizza/>}/>}/>
                         <Route path="/admin/edit/:id" exact element={<AdminPage children= {<EditPizza/>}/>}/>
+                        <Route path="/admin/add" exact element={<AdminPage children= {<AddPizza/>}/>}/>
                     </Routes>
                 </Provider>
             </ThemeContextProvider>

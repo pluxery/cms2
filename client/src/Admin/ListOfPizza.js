@@ -1,11 +1,13 @@
-import React, {useContext} from 'react';
-import '../Order/Order.css'
-import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import {Link, NavLink} from 'react-router-dom';
+import {Box, Button} from "@mui/material";
+import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
-import axios from "axios";
-import {Box, Button} from "@mui/material";
-import { Link } from 'react-router-dom';
+import React, {useContext} from 'react';
+
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
+import '../Order/Order.css'
 
 function PizzaItem({pizza}) {
 
@@ -66,7 +68,7 @@ function PizzaItem({pizza}) {
                         <div className={'status'}>
                             <Box component={Link} to={`/admin/edit/${pizza._id}`}>
                                 <Button className={theme === dark ? 'button-dark' : 'button-light'}>
-                                    < ModeEditOutlineIcon className={'status-icon__edit'}/>
+                                        <ModeEditOutlineIcon className={'status-icon__edit'}/>
                                 </Button>
                             </Box>
                             {' '} / {' '}

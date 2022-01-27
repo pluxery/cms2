@@ -52,6 +52,7 @@ orderRouter.post('/', [
         }
     })
 
+
 orderRouter.post("/user", async (req, res) => {
     const {userId} = req.body;
     try {
@@ -65,7 +66,7 @@ orderRouter.post("/user", async (req, res) => {
     }
 })
 
-orderRouter.delete("/delete/:id",(req, res) => {
+orderRouter.delete("/delete/:id", (req, res) => {
     Order.findByIdAndRemove(req.params.id).exec((error, deletedItem) => {
         if (error) {
             res.send(error);

@@ -5,35 +5,21 @@ import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import {Button} from "@mui/material";
 import "./Admin.css"
 
-function EditPizza() {
-
-    const params = useParams();
-
-    const [pizza, setPizza] = useState([])
-    useEffect(async () => {
-        try {
-            const response = await axios.post(`/api//pizza/find/${params.id}`)
-            setPizza(response.data)
-
-        } catch (e) {
-        }
-    }, [setPizza])
+function AddPizza() {
 
     const [form, setForm] = useState({
-        image: pizza.image,
-        name: pizza.name,
-        price: pizza.price,
-        compound: pizza.compound,
+        image: '',
+        name: '',
+        price: '',
+        compound: '',
     })
 
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value})
     }
-    const editHandler = async () => {
-        try {
-            const response = await axios.put(`/api//pizza/update/${params.id}`, {...form})
-        } catch (e) {
-        }
+
+    const addHandler = () => {
+        const response = axios.post(`/api/pizza/`, {...form})
     }
 
     const {isLightTheme, light, dark} = useContext(ThemeContext);
@@ -41,21 +27,10 @@ function EditPizza() {
 
     return (
         <div className={'admin__100vw-center'}>
-
-            <div className={'pizza-body'}>
-
-                <img src={pizza.image}/>
-
-                <div className={'pizza-text'}>
-                    <h2>{pizza.name}</h2>
-                    <p>{pizza.compound}</p>
-                    <b>{pizza.price + "руб."}</b>
-                </div>
-
-            </div>
-
-
             <div className={'edit-content'}>
+
+                <h1>Добавить пиццу</h1>
+
                 <input
                     style={{background: `${theme.element}`, color: `${theme.text1}`}}
                     className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}
@@ -97,13 +72,14 @@ function EditPizza() {
                     onChange={changeHandler}/>
                 <div className={'product__footer'}>
                     <NavLink to={'/admin/pizza'} className={'sidebar__text-decoration'}>
-                        <Button className={'basket__button-buy'} onClick={editHandler}>Изменить</Button>
+                        <Button className={'basket__button-buy'} onClick={addHandler}>Добавить</Button>
                     </NavLink>
                 </div>
             </div>
 
         </div>
-    );
+    )
+        ;
 }
 
-export default EditPizza;
+export default AddPizza;

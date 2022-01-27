@@ -1,8 +1,9 @@
 import React, {useContext} from "react";
-import ProductModal from "./ProductModal";
-import {ThemeContext} from "../Layout/Theme/ThemeContext";
-import "./Product.css"
 
+import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import ProductModal from "./ProductModal";
+
+import "./Product.css"
 
 function ProductBox({product}) {
 

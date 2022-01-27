@@ -1,10 +1,12 @@
-import React, {useContext, useState} from "react";
-import {useDispatch} from "react-redux";
-import './Product.css'
 import {Button} from "@mui/material";
+import {useDispatch} from "react-redux";
 import {useModal} from "react-hooks-use-modal";
+import React, {useContext, useState} from "react";
+
 import {addProduct, delProduct} from "../redux/basket/reducer";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
+import './Product.css'
 
 function ProductModal({product}) {
 

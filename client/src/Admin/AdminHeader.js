@@ -1,8 +1,10 @@
-import React, {useContext} from 'react';
-import {NavLink, useNavigate} from "react-router-dom";
-import {AuthContext} from "../Auth/AuthContext";
 import {Button} from "@mui/material";
+import {NavLink, useNavigate} from "react-router-dom";
+import React, {useContext} from 'react';
+
+import {AuthContext} from "../Auth/AuthContext";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
 import "./Admin.css"
 
 function AdminHeader() {
@@ -49,7 +51,7 @@ function AdminHeader() {
                             background: `${theme.bg}`}}>Список Пиццы</p>
                     </NavLink>
 
-                    <NavLink to={'/map'} className={'blue__text'}>
+                    <NavLink to={'/admin/add'} className={'blue__text'}>
                         <p style={{
                             color: `${theme.textheader}`,
                             background: `${theme.bg}`}}>Добавление продукта</p>

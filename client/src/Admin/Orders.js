@@ -1,8 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react'
 import axios from 'axios'
-import ListOfOrders from "./ListOfOrders";
-import '../Order/Order.css'
+import React, {useContext, useEffect, useState} from 'react'
+
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+import ListOfOrders from "./ListOfOrders";
+
+import '../Order/Order.css'
 import './Admin.css'
 
 export default function Orders() {

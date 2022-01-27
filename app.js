@@ -1,7 +1,6 @@
+const cors = require("cors");
 const express = require('express')
 const mongoose = require('mongoose')
-const cors = require("cors");
-
 
 const app = express()
 
@@ -22,7 +21,7 @@ const mongoUrl2 = "mongodb+srv://bobiklovik7:1234qwer@cluster0.iqtby.mongodb.net
 
 async function start() {
     try {
-        await mongoose.connect(mongoUrl2), {
+        await mongoose.connect(mongoUrl1), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true

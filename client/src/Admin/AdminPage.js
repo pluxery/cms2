@@ -1,6 +1,8 @@
 import React from 'react';
-import "./Admin.css"
+
 import AdminHeader from "./AdminHeader";
+
+import "./Admin.css"
 
 function AdminPage({children}) {
     return (

@@ -1,12 +1,14 @@
-import React, { useContext, useState} from "react";
 import {Button} from "@mui/material";
+import {useDispatch, useSelector} from "react-redux";
 import {useModal} from "react-hooks-use-modal";
-import './BasketModal.css'
+import axios from "axios";
+import React, { useContext, useState} from "react";
+
+import {AuthContext} from "../Auth/AuthContext";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import Checkout from "../Checkout/Checkout";
-import axios from "axios";
-import {AuthContext} from "../Auth/AuthContext";
-import {useDispatch, useSelector} from "react-redux";
+
+import './BasketModal.css'
 
 function BasketModal({subtotal}) {
     const products = useSelector(state => state.basket.productsBasket);

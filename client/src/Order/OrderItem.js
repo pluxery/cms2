@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
-import './Order.css'
 import {useSelector} from "react-redux";
+import React, {useContext} from 'react';
+
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 
+import './Order.css'
+
 function OrderItem({order}) {
-    const products = useSelector(state => state.basket.productsBasket);
-    const uniq = [...new Set(order.orderItems)];
 
     const {isLightTheme, light, dark} = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;

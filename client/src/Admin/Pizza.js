@@ -1,5 +1,6 @@
-import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
+import React, {useContext, useEffect, useState} from 'react';
+
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import PizzaItem from "./ListOfPizza";
 

@@ -1,12 +1,13 @@
-import React, {useContext} from "react";
+import {Button} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import './Basket.css'
+import React, {useContext} from "react";
 
-import BasketModal from "./BasketModal";
+import {delAllProducts} from "../redux/basket/reducer";
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import BasketItem from "./BasketItem";
-import {Button} from "@mui/material";
-import {delAllProducts} from "../redux/basket/reducer";
+import BasketModal from "./BasketModal";
+
+import './Basket.css'
 
 function Basket() {
 

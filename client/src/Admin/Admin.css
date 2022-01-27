@@ -1,30 +1,59 @@
-.header-admin{
+.header-admin {
     position: sticky;
     z-index: 100;
     top: 0;
     border-bottom: 2px solid #bcbac2;
 }
 
-.header{
+.admin__100vw-center {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+}
+
+.pizza-body {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.edit-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 30px;
+
+    width: 400px;
+
+    margin: 10px;
+    padding: 30px;
+
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.header {
     text-align: center;
     top: 0;
     padding: 20px;
     margin: 0;
 }
 
-.header-info{
+.header-info {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.header-menu{
+.header-menu {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.status{
+.status {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -32,24 +61,24 @@
     text-align: center;
 }
 
-.status-icon__delete{
+.status-icon__delete {
     color: crimson;
     text-align: center;
     cursor: pointer;
 }
 
-.status-icon__edit{
+.status-icon__edit {
     color: #c814dc;
     text-align: center;
     cursor: pointer;
 }
 
-.status-icon{
+.status-icon {
     color: #0b40b0;
     text-align: center;
     cursor: pointer;
 }
 
-.border-radius{
+.border-radius {
     border-radius: 200px;
 }

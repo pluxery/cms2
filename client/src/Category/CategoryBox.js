@@ -1,7 +1,9 @@
-import React, {useContext} from "react";
-import './CategoryBox.css'
 import {NavLink} from "react-router-dom";
+import React, {useContext} from "react";
+
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
+
+import './CategoryBox.css'
 
 function CategoryBox({image, category, link = '/'}) {
 
