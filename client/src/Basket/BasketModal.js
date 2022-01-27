@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from "react";
+import React, { useContext, useState} from "react";
 import {Button} from "@mui/material";
 import {useModal} from "react-hooks-use-modal";
 import './BasketModal.css'
@@ -7,7 +7,6 @@ import Checkout from "../Checkout/Checkout";
 import axios from "axios";
 import {AuthContext} from "../Auth/AuthContext";
 import {useDispatch, useSelector} from "react-redux";
-import {delAllProducts} from "../redux/basket/reducer";
 
 function BasketModal({subtotal}) {
     const products = useSelector(state => state.basket.productsBasket);
@@ -43,7 +42,6 @@ function BasketModal({subtotal}) {
     const orderHandler = async () => {
         try {
             const response = await axios.post('/api/order', {...form})
-            //dispatch(delAllProducts(products))
         } catch (e) {
         }
     }
@@ -93,7 +91,7 @@ function BasketModal({subtotal}) {
                             className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}
                             placeholder={"Время доставки: "}
                             type="text"
-                            name="phone"
+                            name="time"
                             value={form.phone}
                             onChange={changeHandler}/>
                         <input
@@ -106,9 +104,10 @@ function BasketModal({subtotal}) {
                             onChange={changeHandler}/>
 
                         <div className={'basketModal__buttons'}>
-                            <Button onClick={orderHandler}>Send form</Button>
-                            <div onClick={close}>
+                            <div onClick={orderHandler}>
+                                <div onClick={close}>
                                 <Checkout subtotal={subtotal}/>
+                                </div>
                             </div>
                             <Button className={'basketItem__button-del'} onClick={close}>Отмена</Button>
                         </div>

@@ -70,6 +70,15 @@ function Header() {
 
                 <div
                     className={'header__profile'}>
+
+                    <NavLink to={'/order'} className={'header__profile-data-order'}>
+                        <p style={{
+                            color: `${theme.textheader}`,
+                            background: `${theme.bg}`}}>
+                           Заказы </p>
+                    </NavLink>
+
+
                     <NavLink
                         to={'/basket'}
                         className={'sidebar__text-decoration'}>
