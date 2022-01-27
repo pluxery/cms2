@@ -24,7 +24,7 @@ function AdminHeader() {
         <div style={{
             background: `${theme.bg}`,
             color: `${theme.text}`,}}
-             className={'header__container'}>
+             className={'header-admin'}>
             <h1 style={{
                 background: `${theme.bgfordvfu}`,
                 color: `${theme.text1}`}}
@@ -55,11 +55,6 @@ function AdminHeader() {
                             background: `${theme.bg}`}}>Добавление продукта</p>
                     </NavLink>
 
-                    <NavLink to={'/quality'} className={'blue__text'}>
-                        <p style={{
-                            color: `${theme.textheader}`,
-                            background: `${theme.bg}`}} className={'blue__text'}>Редактирование продукта</p>
-                    </NavLink>
                 </div>
 
                 <div className={'header__profile'}>

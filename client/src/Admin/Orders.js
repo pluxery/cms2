@@ -5,7 +5,7 @@ import '../Order/Order.css'
 import {ThemeContext} from "../Layout/Theme/ThemeContext";
 import './Admin.css'
 
-export default function OrdersUser() {
+export default function Orders() {
 
     const [orders, setOrders] = useState([])
 
@@ -23,9 +23,10 @@ export default function OrdersUser() {
     return (
         <div className={'order'}>
             <div className={'order__body'}>
-                <h1 style= {{color: `${theme.text1}`}}
+                <h1  style={{background: `${theme.bgfordvfu}`,
+                color: `${theme.text1}`}}
                     className={'header'}
-                >История заказов </h1>
+                >Список заказов </h1>
                 {orders.slice(0).reverse().map((item) => {
                             return (
                                 <ListOfOrders order={item}/>

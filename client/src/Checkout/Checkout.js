@@ -6,6 +6,7 @@ export default function Checkout({subtotal}) {
 
     function tokenHander(token) {
         console.log(token);
+        window.location.href = "/basket";
     }
 
     return (

@@ -17,11 +17,14 @@ import {Provider} from "react-redux";
 import ThemeContextProvider from "./Layout/Theme/ThemeContext";
 import AdminPage from "./Admin/AdminPage";
 import Order from "./Order/Order";
-import OrdersUser from "./Admin/OrdersUser";
+import Orders from "./Admin/Orders";
+import Pizza from "./Admin/Pizza";
+import EditPizza from "./Admin/EditPizza";
 
 const apiDrinks = "/api/drink";
 const apiDesserts = '/api/dessert';
 const apiCombo = '/api/combo';
+
 
 export const useRoutes = (isAuthenticated, isAdmin) => {
     if (isAdmin) {
@@ -29,7 +32,9 @@ export const useRoutes = (isAuthenticated, isAdmin) => {
             <ThemeContextProvider>
                 <Provider store={store}>
                     <Routes>
-                        <Route path="/admin/" exact element={<AdminPage children= {<OrdersUser/>}/>}/>
+                        <Route path="/admin" exact element={<AdminPage children= {<Orders/>}/>}/>
+                        <Route path="/admin/pizza" exact element={<AdminPage children= {<Pizza/>}/>}/>
+                        <Route path="/admin/edit/:id" exact element={<AdminPage children= {<EditPizza/>}/>}/>
                     </Routes>
                 </Provider>
             </ThemeContextProvider>

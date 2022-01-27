@@ -41,16 +41,18 @@ function OrderItem({order}) {
                         <div>{order.address}</div>
                     </td>
                     <td>
-                        <div>
+                        <>
                             {order.uniq.map(item => {
                                 return <div>{item.name}</div>
                             })}
-                        </div>
+                        </>
                     </td>
                     <td>
-                        <div> {order.uniq.map(item => {
-                            return <div className={'quantity'}>{order.orderItems.filter(e => e.name === item.name).length}</div>
-                        })}</div>
+                        <> {order.uniq.map(item => {
+                            return <div className={'quality'}>{order.orderItems.filter(e => e.name === item.name).length}
+                            </div>
+                        })}</>
+                        <>{' '}</>
                     </td>
                     <td>
                         <div>{order.totalPrice + 'руб.'}</div>

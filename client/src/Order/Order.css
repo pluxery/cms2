@@ -12,7 +12,7 @@
 .table td{
     padding: 5px 10px;
     border: 1px solid #eee;
-    text-align: left;
+    text-align: center;
 }
 .table tbody tr:nth-child(odd){
     background: #fff;
@@ -43,6 +43,7 @@ div{
 }
 
 .quantity{
-    padding: 5px 10px 20px;
-    text-align: left;
+    text-align: center;
+    margin-bottom: 15px;
+
 }

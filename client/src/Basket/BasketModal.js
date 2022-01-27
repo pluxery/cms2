@@ -28,7 +28,6 @@ function BasketModal({subtotal}) {
             address: '',
             userId: currentUser.userId,
             phone: '',
-            date: '',
             name: '',
             email: '',
             orderItems: products,
@@ -86,14 +85,6 @@ function BasketModal({subtotal}) {
                             value={form.name}
                             onChange={changeHandler}/>
 
-                        <input
-                            style={{background: `${theme.element}`, color: `${theme.text1}`}}
-                            className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}
-                            placeholder={"Время доставки: "}
-                            type="text"
-                            name="time"
-                            value={form.phone}
-                            onChange={changeHandler}/>
                         <input
                             style={{background: `${theme.element}`, color: `${theme.text1}`}}
                             className={theme === dark ? 'basketModal__input-dark' : 'basketModal__input-light'}

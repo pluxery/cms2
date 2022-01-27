@@ -10,9 +10,11 @@ function OrderItem({order}) {
     const products = useSelector(state => state.basket.productsBasket);
     const uniq = [...new Set(order.orderItems)];
 
-    const [id, setId] = useState(order._id)
-    const delOrderHandler = () => {
-        const response = axios.post('api/order/deleteOrder', id)
+
+    const handleDelete = (id) => {
+        axios.delete(`/api/order/delete/${id}`).then((res) => {
+            window.location.href = "/admin";
+        });
     }
 
     const {isLightTheme, light, dark} = useContext(ThemeContext);
@@ -46,7 +48,10 @@ function OrderItem({order}) {
                         <div>Сумма заказа</div>
                     </th>
                     <th style={{background: `${theme.th}`}}>
-                        <div>Статус</div>
+                        <div>Дата</div>
+                    </th>
+                    <th style={{background: `${theme.th}`}}>
+                        <div>Действия</div>
                     </th>
 
                 </tr>
@@ -74,26 +79,32 @@ function OrderItem({order}) {
                         </div>
                     </td>
                     <td>
-                        <div> {order.uniq.map(item => {
-                            return <div className={'quantity'}
+                        <> {order.uniq.map(item => {
+                            return <div
                             >{order.orderItems.filter(e => e.name === item.name).length}</div>
-                        })}</div>
+                        })}</>
+                        <>{' '}</>
                     </td>
                     <td>
                         <div>{order.totalPrice + 'руб.'}</div>
                     </td>
                     <td>
+                        <div>{order.createdAt}</div>
+                    </td>
+                    <td>
                         <div className={'status'}>
                         <Button className={theme === dark ? 'button-dark' : 'button-light'}
-                            onClick={() => setClick(!click)}>{click ? 'Готово ✅' : 'Готовится ⏳'}</Button>
-                        <DeleteIcon onClick={delOrderHandler} className={'status-icon'}/>
+                            onClick={() => setClick(!click)}>{click ? '✅' : '⏳'}</Button>
+                            {' '} / {' '}
+                            <Button className={theme === dark ? 'button-dark' : 'button-light'}>
+                                <DeleteIcon  onClick={() => handleDelete( order._id)} className={'status-icon'}/>
+                            </Button>
                         </div>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </>
-
     );
 }
 
