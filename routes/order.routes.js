@@ -3,7 +3,6 @@ const Order = require("../models/Order");
 const orderRouter = express.Router();
 const {check, validationResult} = require('express-validator')
 
-
 orderRouter.get("/", async (req, res) => {
     try {
         const orders = await Order.find({});
@@ -66,15 +65,13 @@ orderRouter.post("/user", async (req, res) => {
     }
 })
 
-orderRouter.post("/deleteOrder", async (req, res) => {
-    const pizzaId = req.body._id;
-    try {
-        const orders = await Order.findOneAndDelete({ _id: pizzaId });
-        res.status(200).send("Pizza Deleted");
-    } catch (error) {
-        res.status(404).json({ message: error });
-    }
+orderRouter.delete("/delete/:id",(req, res) => {
+    Order.findByIdAndRemove(req.params.id).exec((error, deletedItem) => {
+        if (error) {
+            res.send(error);
+        }
+        return res.json(deletedItem);
+    });
 });
-
 
 module.exports = orderRouter;

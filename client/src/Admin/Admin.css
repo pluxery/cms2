@@ -1,3 +1,10 @@
+.header-admin{
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    border-bottom: 2px solid #bcbac2;
+}
+
 .header{
     text-align: center;
     top: 0;
@@ -20,10 +27,29 @@
 .status{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.status-icon__delete{
+    color: crimson;
+    text-align: center;
+    cursor: pointer;
+}
+
+.status-icon__edit{
+    color: #c814dc;
+    text-align: center;
+    cursor: pointer;
 }
 
 .status-icon{
-    color: crimson;
+    color: #0b40b0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.border-radius{
+    border-radius: 200px;
 }
